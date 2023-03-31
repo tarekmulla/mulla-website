@@ -17,3 +17,8 @@ variable "acm_certificate_arn" {
   type        = string
   description = "The ARN for the domain certificate in ACM"
 }
+
+variable "waf_arn" {
+  type        = string
+  description = "The ARN for the WAF"
+}
