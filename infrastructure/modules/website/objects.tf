@@ -1,6 +1,6 @@
 module "website_files" {
   source   = "hashicorp/dir/template"
-  base_dir = "../website/"
+  base_dir = "../webapp/build"
 }
 
 resource "aws_s3_object" "static_files" {
