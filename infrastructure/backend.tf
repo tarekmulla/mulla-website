@@ -9,7 +9,6 @@ terraform {
   }
 
   # S3 bucket to store the terraform state file remotly, the bucket should be created manually
-  # DynamoDB to lock the terraform state
   backend "s3" {
     bucket  = "terraform-state-mulla"
     key     = "mulla-website/terraform.tfstate"

@@ -41,11 +41,6 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
   }
 }
 
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.website.id
-  policy = data.aws_iam_policy_document.website_policy.json
-}
-
 resource "aws_s3_bucket_public_access_block" "website_block" {
   bucket = aws_s3_bucket.website.id
 
