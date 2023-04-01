@@ -42,10 +42,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.TERRAFORM_REGION }}
 
+      - name: Use Node.js 18.4.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.4.0
+
+      - name: Install npm dependencies
+        run: npm --prefix ./webapp install
+
       - name: build the react webapp
-        id: build
-        run: |
-          npm --prefix /webapp run build
+        run: npm --prefix ./webapp run build
 
       # Install the latest version of Terraform CLI and configure the Terraform
       # CLI configuration file with a Terraform Cloud user API token
