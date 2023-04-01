@@ -1,5 +1,4 @@
-[![Terraform deployment](https://github.com/tarekmulla/mulla-website/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/tarekmulla/mulla-website/actions/workflows/terraform-deploy.yml)
-
+[![Terraform deployment](https://github.com/tarekmulla/mulla-website/actions/workflows/terraform-deploy.yml/badge.svg)](https://github.com/tarekmulla/mulla-website/actions/workflows/terraform-deploy.yml)  [![CodeQL](https://github.com/tarekmulla/mulla-website/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/tarekmulla/mulla-website/actions/workflows/github-code-scanning/codeql)  [![Snyk Security](https://github.com/tarekmulla/mulla-website/actions/workflows/snyk-security.yml/badge.svg)](https://github.com/tarekmulla/mulla-website/actions/workflows/snyk-security.yml)
 
 # mulla-website
 The source code for [Tarek Mulla](https://www.linkedin.com/in/tarekmulla/) personal website https://mulla.au
@@ -43,14 +42,12 @@ The application has couple of check to follow best practices, and make sure the 
 The project use github action to check, test, and deploy the application. The followings are the actions it supported now:
 * [terraform-plan](https://github.com/tarekmulla/mulla-website/actions/workflows/terraform-plan.yml): This action checks the Terraform plan and shows it in the pull request.
 * [terraform-deploy](https://github.com/tarekmulla/mulla-website/actions/workflows/terraform-deploy.yml): This action deploys the terraform infrastructure when a new commit pushed to the main branch.
-
+* [CodeQL](https://codeql.github.com/): To discover vulnerabilities across the codebase.
+* [Snyk](https://snyk.io/): To scan the source code, and find vulnerabilities in Terraform files, and suggest security best practices.
 
 ### Other tools ###
 
-The repository has integration with other tools to check the security for the source code; Those tools are:
-* [gitguardian](https://www.gitguardian.com/): To scan the opened pull requests and check if it contains secrets or senstive information in the code changes.
-* [Snyk](https://snyk.io/): To scan the source code, and find vulnerabilities in Terraform files, and suggest security best practices.
-
+* [Dependabot](https://github.com/dependabot): To alert developers when a repository is using a software dependency with a known vulnerability.
 
 ## How do I get set up? ##
 
