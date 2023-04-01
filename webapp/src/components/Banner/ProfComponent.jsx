@@ -154,7 +154,7 @@ const Profile = styled.div`
       width: 14rem;
     }
     @media (max-width: 640px) {
-      width: 90%;
+      width: 100%;
     }
   }
 
