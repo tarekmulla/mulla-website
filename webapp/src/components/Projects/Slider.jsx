@@ -21,6 +21,11 @@ let data = [
         link: "https://github.com/tarekmulla/mulla-website"
     },
     {
+      img : "https://globalcompactrefugees.org/sites/default/files/styles/landscape_08/public/GP-Talent%20Beyond%20Boundaries_Talent%20Catalog_global_0.webp?h=7cdec6eb&itok=c130s8FZ",
+      disc : "Volunteered with Talent Beyond Boundaries to migrate their java app to AWS cloud using Terraform",
+      link: "https://github.com/talentbeyondboundaries/tbbtalentv2"
+    },
+    {
       img : "https://www.rmit.edu.vn/content/dam/rmit/vn/en/assets-for-production/images/rmit-sgs-campus-facilities/2019-campus-photos/sgs-campus-night-03.jpg",
       disc : "Webapp to demonstrate the material of Course MATH2415 - Discrete Mathematics in RMIT Uni",
       link: "https://github.com/tarekmulla/discrete-math"
