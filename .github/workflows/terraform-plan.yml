@@ -26,9 +26,6 @@ jobs:
   terraform-plan:
     name: Terraform plan
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: ${{ env.WEB_URL }}
 
     steps:
       # Checkout the repository to the GitHub Actions runner
