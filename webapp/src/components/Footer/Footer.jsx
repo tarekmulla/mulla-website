@@ -8,7 +8,7 @@ import { AiOutlineGithub } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
-import { Slide, Zoom, Fade } from "react-awesome-reveal";
+import { Slide, Fade } from "react-awesome-reveal";
 
 const Footer = () => {
   const scrollUp = () => {
