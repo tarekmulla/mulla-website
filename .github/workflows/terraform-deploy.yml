@@ -43,7 +43,7 @@ jobs:
           aws-region: ${{ env.TERRAFORM_REGION }}
 
       - name: Use Node.js 18.4.0
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 18.4.0
 
