@@ -26,19 +26,8 @@ override.tf.json
 
 .DS_STORE
 
-
-# python cache files
-**/__pycache__/*
-
-# docker env variables
-.env
-
 # vscode setting
 .vscode
-
-# python virtual env
-**/.venv
-
 
 # ------- react js files --------
 # Logs

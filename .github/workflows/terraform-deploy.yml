@@ -45,7 +45,7 @@ jobs:
       - name: build the react webapp
         id: build
         run: |
-          npm --prefix /webapp run build
+          make build
 
       # Install the latest version of Terraform CLI and configure the Terraform
       # CLI configuration file with a Terraform Cloud user API token
