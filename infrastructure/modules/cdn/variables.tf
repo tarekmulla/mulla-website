@@ -32,3 +32,13 @@ variable "origin" {
   type        = string
   description = "The content origin for CDN"
 }
+
+variable "api_id" {
+  type        = string
+  description = "The api Invoke ID"
+}
+
+variable "region" {
+  type        = string
+  description = "The aws region"
+}

@@ -1,4 +1,3 @@
 app = "mulla-website"
-region = "ap-southeast-2"
 domain = "mulla.au"
 tags = {}

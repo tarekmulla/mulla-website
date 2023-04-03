@@ -13,15 +13,15 @@ variable "zone_id" {
   description = "The Hosted Zone ID for parent domain"
 }
 
-# variable "bucket_domain" {
-#   type        = string
-#   description = "The s3 bucket name that host the website"
-# }
+variable "api_regional_domain_name" {
+  type        = string
+  description = "The api regional domain name"
+}
 
-# variable "hosted_zone_id" {
-#   type        = string
-#   description = "The s3 bucket hosted zone id"
-# }
+variable "api_regional_zone_id" {
+  type        = string
+  description = "The api regional zone id"
+}
 
 variable "cloudfront_domain" {
   type        = string

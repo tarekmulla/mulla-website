@@ -8,8 +8,7 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "cloudfront" {
-  description = "for cloudfront or not"
-  type        = bool
-  default     = false
+variable "domain" {
+  type        = string
+  description = "The website domain"
 }

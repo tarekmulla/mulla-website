@@ -19,3 +19,15 @@ resource "aws_route53_record" "www" {
   ttl     = "3600"
   records = [var.route53_domain]
 }
+
+resource "aws_route53_record" "api" {
+  name    = "api.${var.route53_domain}"
+  type    = "A"
+  zone_id = var.zone_id
+
+  alias {
+    evaluate_target_health = true
+    name                   = var.api_regional_domain_name
+    zone_id                = var.api_regional_zone_id
+  }
+}

@@ -7,7 +7,7 @@ variable "app" {
 variable "region" {
   type        = string
   description = "The aws region where the resources will be provisioned"
-  default     = "ap-southeast-2"
+  default     = "us-east-1"
 }
 
 # A map of the extra tags to apply to aws resources.

@@ -8,17 +8,23 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "app_bucket_arn" {
-  description = "ARN for the app S3 bucket"
+variable "api_id" {
   type        = string
+  description = "The API Id"
 }
 
-variable "app_bucket_id" {
-  description = "ID for the app S3 bucket"
+variable "resource_id" {
   type        = string
+  description = "The container resource Id"
 }
 
-variable "cloudfront_dist_arn" {
-  description = "cloudfront_dist_arn"
+variable "api_exec_arn" {
   type        = string
+  description = "The arn for API execution"
+}
+
+
+variable "bucket_name" {
+  type        = string
+  description = "The S3 bucket name"
 }

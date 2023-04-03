@@ -1,62 +1,28 @@
-# S3 bucket to store the website files
-resource "aws_s3_bucket" "website" {
-  bucket        = var.domain
-  force_destroy = true
-  tags          = var.tags
+data "aws_caller_identity" "current" {}
+
+module "website_files" {
+  source   = "hashicorp/dir/template"
+  base_dir = "../webapp/build"
 }
 
-# enable SSE-S3 encryption in the bucket
-resource "aws_s3_bucket_server_side_encryption_configuration" "website_encryption" {
-  bucket = aws_s3_bucket.website.id
+resource "aws_s3_object" "static_files" {
+  for_each = module.website_files.files
 
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
-}
+  bucket       = var.app_bucket_id
+  key          = "website/${each.key}"
+  content_type = each.value.content_type
 
-# Enable objects versioning
-resource "aws_s3_bucket_versioning" "website_versioning" {
-  bucket = aws_s3_bucket.website.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
+  # The template_files module guarantees that only one of these two attributes
+  # will be set for each file, depending on whether it is an in-memory template
+  # rendering result or a static file on disk.
+  source  = each.value.source_path
+  content = each.value.content
 
-# Block S3 public access
-resource "aws_s3_bucket_acl" "website_acl" {
-  bucket = aws_s3_bucket.website.id
-  acl    = "private"
-}
+  # Unless the bucket has encryption enabled, the ETag of each object is an
+  # MD5 hash of that object.
+  source_hash = each.value.digests.md5
 
-resource "aws_s3_bucket_website_configuration" "website_configuration" {
-  bucket = aws_s3_bucket.website.id
-  index_document {
-    suffix = "index.html"
-  }
-  error_document {
-    key = "index.html"
-  }
-}
-
-resource "aws_s3_bucket_public_access_block" "website_block" {
-  bucket = aws_s3_bucket.website.id
-
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
-}
-
-resource "aws_s3_bucket_cors_configuration" "cors" {
-  bucket = aws_s3_bucket.website.id
-
-  cors_rule {
-    allowed_headers = ["*"]
-    allowed_methods = ["GET", "PUT", "POST", "DELETE", "HEAD"]
-    allowed_origins = ["https://${var.domain}"]
-    expose_headers  = ["ETag"]
-    max_age_seconds = 3000
-  }
+  depends_on = [
+    aws_kms_key.s3_kms
+  ]
 }
