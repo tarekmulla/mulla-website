@@ -1,0 +1,5 @@
+version: v1.19.0
+ignore:
+  SNYK-CC-TF-99:
+    - '*':
+        reason: API Gateway will be accessed via Cloudfront only

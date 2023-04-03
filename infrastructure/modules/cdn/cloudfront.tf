@@ -1,18 +1,34 @@
 locals {
-  s3_origin_id = "S3WebappOrigin"
+  s3_origin_id  = "S3WebappOrigin"
+  api_origin_id = "APIOrigin"
 }
 
-resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
-  comment = "OAI to restrict access to AWS S3 content for website ${var.domain}"
+resource "aws_cloudfront_origin_access_control" "default" {
+  name                              = "s3-bucket-access"
+  description                       = "OAC to access s3 bucket website files"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = var.origin
-    origin_id   = local.s3_origin_id
+    domain_name              = var.origin
+    origin_id                = local.s3_origin_id
+    origin_path              = "/website"
+    origin_access_control_id = aws_cloudfront_origin_access_control.default.id
+  }
 
-    s3_origin_config {
-      origin_access_identity = aws_cloudfront_origin_access_identity.origin_access_identity.cloudfront_access_identity_path
+  origin {
+    domain_name = replace(var.api_id, "/^https?://([^/]*).*/", "$1")
+    origin_id   = local.api_origin_id
+    origin_path = "/production"
+
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_protocol_policy = "https-only"
+      origin_ssl_protocols   = ["TLSv1.2"]
     }
   }
 
@@ -36,18 +52,28 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = local.s3_origin_id
 
-    forwarded_values {
-      query_string = false
-
-      cookies {
-        forward = "none"
-      }
-    }
+    origin_request_policy_id = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf"
+    cache_policy_id          = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 
     viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+  }
+
+  ordered_cache_behavior {
+    path_pattern     = "/api/*"
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods   = ["GET", "OPTIONS", "HEAD"]
+    target_origin_id = local.api_origin_id
+    compress         = false
+
+    origin_request_policy_id = "acba4595-bd28-49b8-b9fe-13317c0390fa"
+    cache_policy_id          = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+
+    viewer_protocol_policy = "redirect-to-https"
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.remove_path.arn
+    }
   }
 
   restrictions {
@@ -62,7 +88,16 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   tags = var.tags
 
   viewer_certificate {
-    acm_certificate_arn = var.acm_certificate_arn
-    ssl_support_method  = "sni-only"
+    acm_certificate_arn      = var.acm_certificate_arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
+}
+
+resource "aws_cloudfront_function" "remove_path" {
+  name    = "remove-path"
+  runtime = "cloudfront-js-1.0"
+  comment = "cloudfront function to remove path from url (e.g. 'api/')"
+  publish = true
+  code    = file("${path.module}/remove_path.js")
 }

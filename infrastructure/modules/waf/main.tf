@@ -1,7 +1,7 @@
 resource "aws_wafv2_web_acl" "web_acl" {
   name        = "${var.app}-acl"
   description = "AWS Managed Rules for WAF"
-  scope       = "CLOUDFRONT"
+  scope       = var.cloudfront == true ? "CLOUDFRONT" : "REGIONAL"
 
   default_action {
     allow {}
