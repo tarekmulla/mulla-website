@@ -11,7 +11,7 @@ resource "aws_api_gateway_deployment" "api_deploy" {
       aws_api_gateway_resource.email.id,
       module.email.method_id,
       module.email.integration_id]
-      )))
+    )))
   }
 
   lifecycle {

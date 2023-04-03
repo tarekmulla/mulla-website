@@ -1,6 +1,6 @@
 # S3 bucket to store the website files
 resource "aws_s3_bucket" "website" {
-  bucket        = "${var.app}"
+  bucket        = var.app
   force_destroy = true
   tags          = var.tags
 }

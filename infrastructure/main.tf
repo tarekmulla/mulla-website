@@ -54,14 +54,13 @@ module "website" {
   ]
 }
 
-
 module "dns" {
   source                    = "./modules/dns"
   route53_domain            = var.domain
   zone_id                   = data.aws_route53_zone.domain_zone.id
   cloudfront_domain         = module.cdn.cloudfront_domain
   cloudfront_hosted_zone_id = module.cdn.cloudfront_hosted_zone_id
-  tags = local.tags
+  tags                      = local.tags
 }
 
 module "api" {
@@ -70,7 +69,7 @@ module "api" {
   api_domain      = "api.${var.domain}"
   certificate_arn = module.acm_certificate.arn
   bucket_name     = module.s3_bucket.id
-  tags = local.tags
+  tags            = local.tags
 
   depends_on = [
     module.acm_certificate
