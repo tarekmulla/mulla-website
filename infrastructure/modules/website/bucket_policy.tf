@@ -3,9 +3,6 @@ data "aws_iam_policy_document" "website_policy" {
     sid = "Allow cloudfront OAC to access S3"
     actions = [
       "s3:GetObject"
-      # ,
-      # "s3:GetBucketAcl",
-      # "s3:PutBucketAcl"
     ]
     principals {
       identifiers = ["cloudfront.amazonaws.com"]
@@ -20,21 +17,6 @@ data "aws_iam_policy_document" "website_policy" {
       values   = [var.cloudfront_dist_arn]
     }
   }
-  # statement {
-  #   sid = "Allow cloudfront logs"
-  #   actions = [
-  #     "s3:GetObject",
-  #     "s3:GetBucketAcl",
-  #     "s3:PutBucketAcl"
-  #   ]
-  #   principals {
-  #     identifiers = [var.cloudfront_oai_arn]
-  #     type        = "AWS"
-  #   }
-  #   resources = [
-  #     "${var.app_bucket_arn}/*"
-  #   ]
-  # }
 }
 
 resource "aws_s3_bucket_policy" "access" {
