@@ -65,10 +65,15 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     target_origin_id = local.api_origin_id
     compress         = false
 
-    origin_request_policy_id = "216adef6-5c7f-47e4-b989-5492eafa07d3"
+    origin_request_policy_id = "acba4595-bd28-49b8-b9fe-13317c0390fa"
     cache_policy_id          = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
 
     viewer_protocol_policy = "redirect-to-https"
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.remove_path.arn
+    }
   }
 
   restrictions {
@@ -87,4 +92,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }
+}
+
+resource "aws_cloudfront_function" "remove_path" {
+  name    = "remove-path"
+  runtime = "cloudfront-js-1.0"
+  comment = "cloudfront function to remove path from url (e.g. 'api/')"
+  publish = true
+  code    = file("${path.module}/remove_path.js")
 }

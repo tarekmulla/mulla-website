@@ -61,8 +61,6 @@ module "dns" {
   zone_id                   = data.aws_route53_zone.domain_zone.id
   cloudfront_domain         = module.cdn.cloudfront_domain
   cloudfront_hosted_zone_id = module.cdn.cloudfront_hosted_zone_id
-  api_regional_domain_name  = module.api.regional_domain_name
-  api_regional_zone_id      = module.api.regional_zone_id
   tags = local.tags
 }
 

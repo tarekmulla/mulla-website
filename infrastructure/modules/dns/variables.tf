@@ -13,16 +13,6 @@ variable "zone_id" {
   description = "The Hosted Zone ID for parent domain"
 }
 
-variable "api_regional_domain_name" {
-  type        = string
-  description = "The api regional domain name"
-}
-
-variable "api_regional_zone_id" {
-  type        = string
-  description = "The api regional zone id"
-}
-
 variable "cloudfront_domain" {
   type        = string
   description = "The cloudfront domain for the website"
