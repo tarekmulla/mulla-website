@@ -16,11 +16,10 @@ const ProfComponent = () => {
           <h1 className="blue-highlight">Tarek Mulla</h1>
           <h3>Professional Cloud Engineer, DevSecOps, Cybersecurity Enthusiast</h3>
           <p>
-            A professional cloud engineer with 9+ years of cloud and software development experience;
-            with a deep understanding of DevOps, security best practices, and cloud solutions implementation.
+          Tarek is a professional cloud engineer with 9+ years of cloud and software development experience; He has a deep understanding of DevOps, security best practices, and cloud solutions implementation.
           </p>
           <p>
-          Currently pursuing Master's degree in Cybersecurity at RMIT university to expand my knowledge and skills in this field.
+          He is currently pursuing a Master's degree in Cybersecurity at RMIT University to expand his knowledge and skills in the security field.
           </p>
           <Social>
             <p>Check my profiles</p>

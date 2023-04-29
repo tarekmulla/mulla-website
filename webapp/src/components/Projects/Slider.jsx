@@ -11,6 +11,11 @@ let data = [
       link: "https://www.telstra.com.au/trade-in"
     },
     {
+      img : "https://scontent.fmel15-1.fna.fbcdn.net/v/t39.30808-6/326493301_601309628493658_8046971315772355754_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=e3f864&_nc_ohc=za6zL9nSfOIAX-qsa7w&_nc_ht=scontent.fmel15-1.fna&oh=00_AfBInyZ8r9anRdibxu44JMeAzP-Ml4pjt4bXjC1KPUcK6Q&oe=64520BDE",
+      disc : "Helping the Cloud platform team at eHealth NSW with the Cloud Security Essential 8 (E8) compliance initiative.",
+      link: "https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight"
+    },
+    {
         img : "https://i0.wp.com/alphaedgeinvesting.com/wp-content/uploads/2022/07/Trading.jpeg?w=1950&ssl=1",
         disc: "Migrating, automating and supporting Content delivery applications in Iress",
         link: "https://www.iress.com/software/trading-and-market-data/market-data/"

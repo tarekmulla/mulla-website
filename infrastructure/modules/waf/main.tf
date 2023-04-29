@@ -53,29 +53,6 @@ resource "aws_wafv2_web_acl" "web_acl" {
     }
   }
 
-  # Inspects for a list of IPs known to anonymize client information (TOR nodes, temporary proxies, etc.)
-  rule {
-    name     = "${var.app}-rule-anonymous-ip"
-    priority = 3
-
-    override_action {
-      none {}
-    }
-
-    statement {
-      managed_rule_group_statement {
-        name        = "AWSManagedRulesAnonymousIpList"
-        vendor_name = "AWS"
-      }
-    }
-
-    visibility_config {
-      cloudwatch_metrics_enabled = true
-      metric_name                = "${var.app}-rule-anonymous-ip-metric"
-      sampled_requests_enabled   = true
-    }
-  }
-
   # block request patterns associated with exploitation of SQL databases, like SQL injection
   rule {
     name     = "${var.app}-rule-sql-rule-set"
