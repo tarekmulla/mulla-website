@@ -19,7 +19,7 @@ resource "aws_s3_object" "lambda_code_zip" {
 module "email_lambda" {
   depends_on = [aws_s3_object.lambda_code_zip]
   source     = "terraform-aws-modules/lambda/aws"
-  version    = "4.0.1"
+  version    = "4.18.0"
 
   function_name  = "${var.app}-email"
   description    = "lambda function to send an email"
