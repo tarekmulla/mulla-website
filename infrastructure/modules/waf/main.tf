@@ -53,29 +53,6 @@ resource "aws_wafv2_web_acl" "web_acl" {
     }
   }
 
-  # block request patterns associated with exploitation of SQL databases, like SQL injection
-  rule {
-    name     = "${var.app}-rule-sql-rule-set"
-    priority = 4
-
-    override_action {
-      none {}
-    }
-
-    statement {
-      managed_rule_group_statement {
-        name        = "AWSManagedRulesSQLiRuleSet"
-        vendor_name = "AWS"
-      }
-    }
-
-    visibility_config {
-      cloudwatch_metrics_enabled = true
-      metric_name                = "${var.app}-rule-sql-rule-set-metric"
-      sampled_requests_enabled   = true
-    }
-  }
-
   tags     = var.tags
   tags_all = var.tags
 
