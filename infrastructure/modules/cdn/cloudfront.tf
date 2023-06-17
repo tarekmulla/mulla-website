@@ -1,5 +1,6 @@
 locals {
   s3_origin_id  = "S3WebappOrigin"
+  s3_images_origin_id  = "S3ImagesOrigin"
   api_origin_id = "APIOrigin"
 }
 
@@ -12,6 +13,13 @@ resource "aws_cloudfront_origin_access_control" "default" {
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
+  origin {
+    domain_name              = var.origin
+    origin_id                = local.s3_images_origin_id
+    origin_path              = "/images"
+    origin_access_control_id = aws_cloudfront_origin_access_control.default.id
+  }
+
   origin {
     domain_name              = var.origin
     origin_id                = local.s3_origin_id
@@ -56,6 +64,23 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     cache_policy_id          = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 
     viewer_protocol_policy = "redirect-to-https"
+  }
+
+  ordered_cache_behavior {
+    path_pattern     = "/images/*"
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = local.s3_images_origin_id
+
+    origin_request_policy_id = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf"
+    cache_policy_id          = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+
+    viewer_protocol_policy = "redirect-to-https"
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.remove_path.arn
+    }
   }
 
   ordered_cache_behavior {

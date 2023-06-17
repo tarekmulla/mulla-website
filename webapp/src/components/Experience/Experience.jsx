@@ -20,21 +20,21 @@ const Experience = () => {
           <Card
             Icon={AiOutlineCloudServer}
             title={"Cloud Architecture"}
-            disc={`Design, implement, and secure multi-account, multi-region cloud solutions using different Infrastructure as a Code (fully automated, high available and scalable)`}
+            disc={`Design, deploy, and secure cloud solutions (AWS, and Azure) utilizing diverse Infrastructure as Code (IaC) languages.`}
           />
         </Slide>
         <Slide direction="up">
           <Card
             Icon={CgInfinity}
             title={"DevSecOps Practices"}
-            disc={`Setup and effectively use continuous integration and delivery tooling and processes to deliver software following DevOps and security best practices`}
+            disc={`Setup and proficiently leverage continuous integration and delivery (CI/CD) tools to deliver software in adherence to industry-leading DevOps and security principles.`}
           />
         </Slide>
         <Slide direction="right">
           <Card
             Icon={MdSecurity}
             title={"Cybersecurity"}
-            disc={`Implement security controls, and make sure the cloud environment is secure and follows best practices (Access control, Incident management, Data protection, ...)`}
+            disc={`Enforce robust security controls to ensure a fortified and compliant cloud environment adhering to best practices.`}
           />
         </Slide>
       </Cards>

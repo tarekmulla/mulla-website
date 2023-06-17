@@ -6,32 +6,32 @@ import styled from 'styled-components';
 
 let data = [
     {
-      img : "https://live-production.wcms.abc-cdn.net.au/62ae817095a253ef721e3625fa1960ef?impolicy=wcms_crop_resize&cropH=1689&cropW=3000&xPos=0&yPos=42&width=862&height=485",
+      img : "https://mulla.au/images/telstra.png",
       disc : "Telstra Trade-in cloud backend, multi-accounts, multi-region cloud infrastructure backend.",
       link: "https://www.telstra.com.au/trade-in"
     },
     {
-      img : "https://digitalhealth.org.au/wp-content/uploads//2020/02/ehealthNSW-logo-255x200.png",
+      img : "https://mulla.au/images/ehealth.png",
       disc : "Helping the Cloud platform team at eHealth NSW with the Cloud Security Essential 8 (E8) compliance initiative.",
       link: "https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight"
     },
     {
-        img : "https://i0.wp.com/alphaedgeinvesting.com/wp-content/uploads/2022/07/Trading.jpeg?w=1950&ssl=1",
+        img : "https://mulla.au/images/iress.png",
         disc: "Migrating, automating and supporting Content delivery applications in Iress",
         link: "https://www.iress.com/software/trading-and-market-data/market-data/"
     },
     {
-        img : "https://repository-images.githubusercontent.com/337150944/a51e8900-6aec-11eb-8c14-9119664dccda",
+        img : "https://mulla.au/images/portfolio.png",
         disc: "Personal porfolio, serverless, hosted in AWS, fully automated and follows DevSecOps practices.",
         link: "https://github.com/tarekmulla/mulla-website"
     },
     {
-      img : "https://globalcompactrefugees.org/sites/default/files/styles/landscape_08/public/GP-Talent%20Beyond%20Boundaries_Talent%20Catalog_global_0.webp?h=7cdec6eb&itok=c130s8FZ",
+      img : "https://mulla.au/images/tbb.png",
       disc : "Volunteered with Talent Beyond Boundaries to migrate their java app to AWS cloud using Terraform",
       link: "https://github.com/talentbeyondboundaries/tbbtalentv2"
     },
     {
-      img : "https://www.rmit.edu.vn/content/dam/rmit/vn/en/assets-for-production/images/rmit-sgs-campus-facilities/2019-campus-photos/sgs-campus-night-03.jpg",
+      img : "https://mulla.au/images/rmit.jpg",
       disc : "Webapp to demonstrate the material of Course MATH2415 - Discrete Mathematics in RMIT Uni",
       link: "https://github.com/tarekmulla/discrete-math"
     }

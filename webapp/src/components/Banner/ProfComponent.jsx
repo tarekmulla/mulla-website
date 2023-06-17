@@ -11,15 +11,18 @@ const ProfComponent = () => {
       <Slide direction="left">
         <Texts>
           <h4>
-            Hello <span className="blue-highlight">I'am</span>
+            Hello <span className="blue-highlight">I am</span>
           </h4>
           <h1 className="blue-highlight">Tarek Mulla</h1>
           <h3>Professional Cloud Engineer, DevSecOps, Cybersecurity Enthusiast</h3>
           <p>
-          Tarek is a professional cloud engineer with 9+ years of cloud and software development experience; He has a deep understanding of DevOps, security best practices, and cloud solutions implementation.
+          Tarek is an experienced cloud engineer with over 9 years of cloud and software development experience. He specializes in DevOps, security best practices, and implementing cloud solutions.
           </p>
           <p>
-          He is currently pursuing a Master's degree in Cybersecurity at RMIT University to expand his knowledge and skills in the security field.
+          He is currently pursuing a Master's degree in Cybersecurity at RMIT University to enhance his knowledge and skills in the security field.
+          </p>
+          <p>
+          Tarek is known for his ability to effectively collaborate with cross-functional teams and communicate complex technical concepts to both technical and non-technical stakeholders. He stays up to date with the latest industry trends and continuously enhances his skills through ongoing professional development and certifications.
           </p>
           <Social>
             <p>Check my profiles</p>
@@ -46,7 +49,7 @@ const ProfComponent = () => {
       <Slide direction="right">
         <Profile>
           <img
-            src="./profile-image.jpg"
+            src="https://mulla.au/images/tarek-mulla.jpg"
             alt="profile"
           />
         </Profile>
