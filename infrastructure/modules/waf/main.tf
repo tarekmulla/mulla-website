@@ -30,29 +30,6 @@ resource "aws_wafv2_web_acl" "web_acl" {
     }
   }
 
-  # Inspects IPs that have been identified as bots by Amazon threat intelligence
-  rule {
-    name     = "${var.app}-rule-ip-reputation"
-    priority = 2
-
-    override_action {
-      none {}
-    }
-
-    statement {
-      managed_rule_group_statement {
-        name        = "AWSManagedRulesAmazonIpReputationList"
-        vendor_name = "AWS"
-      }
-    }
-
-    visibility_config {
-      cloudwatch_metrics_enabled = true
-      metric_name                = "${var.app}-rule-ip-reputation-metric"
-      sampled_requests_enabled   = true
-    }
-  }
-
   tags     = var.tags
   tags_all = var.tags
 

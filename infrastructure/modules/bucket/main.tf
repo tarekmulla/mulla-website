@@ -13,8 +13,17 @@ resource "aws_s3_bucket_versioning" "website_versioning" {
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "website_ownership_controls" {
+  bucket = aws_s3_bucket.website.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 # Block S3 public access
 resource "aws_s3_bucket_acl" "website_acl" {
+  depends_on = [aws_s3_bucket_ownership_controls.website_ownership_controls]
+
   bucket = aws_s3_bucket.website.id
   acl    = "private"
 }
