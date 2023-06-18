@@ -21,6 +21,6 @@ resource "aws_s3_object" "images" {
   source_hash = each.value.digests.md5
 
   depends_on = [
-    aws_kms_key.s3_kms
+    aws_s3_bucket_server_side_encryption_configuration.s3_encryption
   ]
 }
