@@ -2,18 +2,21 @@ const AWS = require('aws-sdk');
 const SES = new AWS.SES();
 
 const SENDER_EMAIL = "no-reply@mulla.au";
+const RECEIVER_EMAIL = "tarek@mulla.au";
 
-async function sendEmail(toEmail) {
+async function sendEmail(email, message) {
   const params = {
     Destination: {
-      ToAddresses: [toEmail],
+      ToAddresses: [RECEIVER_EMAIL],
     },
     Message: {
       Body: {
-        Html: { Data: "Hellloooooo" }
+        Html: {
+          Data: "A contact message received from " + email + ", Messsage is: " + message
+        }
       },
       Subject: {
-        Data: "Test email"
+        Data: "Contact message from personal website"
       },
     },
     Source: SENDER_EMAIL

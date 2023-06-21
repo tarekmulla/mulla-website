@@ -1,5 +1,5 @@
 locals {
-  function_name = "email"
+  function_name = "contact"
   zip_path      = "${path.root}/../.tmp/${local.function_name}.zip"
 }
 
@@ -16,13 +16,13 @@ resource "aws_s3_object" "lambda_code_zip" {
   etag   = data.archive_file.lambda_source_package.output_md5
 }
 
-module "email_lambda" {
+module "contact_lambda" {
   depends_on = [aws_s3_object.lambda_code_zip]
   source     = "terraform-aws-modules/lambda/aws"
   version    = "5.0.0"
 
-  function_name  = "${var.app}-email"
-  description    = "lambda function to send an email"
+  function_name  = "${var.app}-contact"
+  description    = "lambda function to send an email when receive contact message"
   handler        = "index.handler"
   runtime        = "nodejs16.x"
   create_package = false
