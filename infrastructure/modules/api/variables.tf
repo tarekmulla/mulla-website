@@ -28,3 +28,8 @@ variable "waf_web_acl" {
   description = "The waf web acl"
   default     = ""
 }
+
+variable "lambda_layer_arns" {
+  type        = list(string)
+  description = "The Invoke ARNs of the Lambda layers"
+}

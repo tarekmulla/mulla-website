@@ -28,6 +28,14 @@ module "s3_bucket" {
   tags   = local.tags
 }
 
+module "lambda_layers" {
+  source      = "./modules/lambda_layers"
+  app         = var.app
+  region      = var.region
+  bucket_name = module.s3_bucket.id
+  tags        = local.tags
+}
+
 module "cdn" {
   source              = "./modules/cdn"
   app                 = var.app
@@ -37,7 +45,7 @@ module "cdn" {
   waf_arn             = module.cloudfront_waf.arn
   logging_bucket      = module.s3_bucket.bucket_domain_name
   origin              = module.s3_bucket.bucket_regional_domain_name
-  api_id              = "api.mulla.au"#module.api.endpoint
+  api_id              = module.api.endpoint
   tags                = local.tags
 }
 
@@ -63,15 +71,16 @@ module "dns" {
   tags                      = local.tags
 }
 
-# module "api" {
-#   source          = "./modules/api"
-#   app             = var.app
-#   api_domain      = "api.${var.domain}"
-#   certificate_arn = module.acm_certificate.arn
-#   bucket_name     = module.s3_bucket.id
-#   tags            = local.tags
+module "api" {
+  source            = "./modules/api"
+  app               = var.app
+  api_domain        = "api.${var.domain}"
+  certificate_arn   = module.acm_certificate.arn
+  bucket_name       = module.s3_bucket.id
+  lambda_layer_arns = module.lambda_layers.layer_arns
+  tags              = local.tags
 
-#   depends_on = [
-#     module.acm_certificate
-#   ]
-# }
+  depends_on = [
+    module.acm_certificate
+  ]
+}

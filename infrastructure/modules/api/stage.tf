@@ -8,9 +8,9 @@ resource "aws_api_gateway_deployment" "api_deploy" {
 
   triggers = {
     redeployment = sha1(jsonencode(concat([
-      aws_api_gateway_resource.email.id,
-      module.email.method_id,
-      module.email.integration_id]
+      aws_api_gateway_resource.contact.id,
+      module.contact.method_id,
+      module.contact.integration_id]
     )))
   }
 
