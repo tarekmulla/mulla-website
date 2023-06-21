@@ -24,13 +24,25 @@ module "email_lambda" {
   function_name  = "${var.app}-email"
   description    = "lambda function to send an email"
   handler        = "index.handler"
-  runtime        = "nodejs14.x"
+  runtime        = "nodejs16.x"
   create_package = false
   s3_existing_package = {
     bucket     = var.bucket_name
     key        = aws_s3_object.lambda_code_zip.id
     version_id = aws_s3_object.lambda_code_zip.version_id
   }
+
+  attach_policy_statements = true
+  # TODO: limit lambda function access
+  policy_statements = {
+    ses = {
+      effect    = "Allow",
+      actions   = ["ses:*"],
+      resources = ["*"]
+    }
+  }
+
+  layers = var.lambda_layer_arns
 
   cloudwatch_logs_retention_in_days = 14
 
