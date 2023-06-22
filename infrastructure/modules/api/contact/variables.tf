@@ -33,3 +33,8 @@ variable "lambda_layer_arns" {
   type        = list(string)
   description = "The Invoke ARNs of the Lambda layers"
 }
+
+variable "website_domain" {
+  type        = string
+  description = "The domain name for the website"
+}

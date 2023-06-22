@@ -22,5 +22,5 @@ resource "aws_api_gateway_deployment" "api_deploy" {
 resource "aws_api_gateway_stage" "apigw_stage" {
   deployment_id = aws_api_gateway_deployment.api_deploy.id
   rest_api_id   = aws_api_gateway_rest_api.api.id
-  stage_name    = "production"
+  stage_name    = terraform.workspace
 }

@@ -22,5 +22,4 @@ variable "tags" {
 variable "domain" {
   type        = string
   description = "The application domain"
-  default     = "mulla.au"
 }

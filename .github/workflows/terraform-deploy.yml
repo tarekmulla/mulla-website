@@ -21,6 +21,7 @@ env:
   TERRAFORM_REGION: ${{ vars.REGION }}
   INFRA_PATH: './infrastructure'
   WEB_URL: ${{ vars.WEB_URL }}
+  DOMAIN: ${{ vars.DOMAIN }}
 
 jobs:
   terraform-deploy:
@@ -47,6 +48,10 @@ jobs:
         with:
           node-version: 18.4.0
 
+      - name: Generate env variable
+        run: |
+          ${{ secrets.DOTENV_FILE }} > ./webapp/.env
+
       - name: Install npm dependencies
         run: npm --prefix ./webapp install
 
@@ -67,5 +72,9 @@ jobs:
         working-directory: ${{ env.INFRA_PATH }}
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false
+        run: |
+          terraform workspace new prod
+          terraform apply -auto-approve -input=false
         working-directory: ${{ env.INFRA_PATH }}
+        env:
+          TF_VAR_domain: ${{ env.DOMAIN }}

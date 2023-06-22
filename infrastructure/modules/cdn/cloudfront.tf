@@ -43,7 +43,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   web_acl_id          = var.waf_arn
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "cache for ${var.app} website"
+  comment             = "cache for ${var.app} website in ${terraform.workspace} environment"
   default_root_object = "index.html"
 
   logging_config {
