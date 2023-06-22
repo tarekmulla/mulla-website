@@ -5,7 +5,7 @@ locals {
 }
 
 resource "aws_cloudfront_origin_access_control" "default" {
-  name                              = "s3-bucket-access"
+  name                              = "${var.app}-${terraform.workspace}-s3-bucket-access"
   description                       = "OAC to access s3 bucket website files"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
@@ -120,7 +120,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 }
 
 resource "aws_cloudfront_function" "remove_path" {
-  name    = "remove-path"
+  name    = "${var.app}-${terraform.workspace}-remove-path"
   runtime = "cloudfront-js-1.0"
   comment = "cloudfront function to remove path from url (e.g. 'api/')"
   publish = true

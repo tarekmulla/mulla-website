@@ -9,7 +9,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
 
   # General rules, including those listed in OWASP, CVE, etc.
   rule {
-    name     = "${var.app}-rule-common"
+    name     = "${var.app}-${terraform.workspace}-rule-common"
     priority = 1
 
     override_action {
@@ -25,7 +25,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
 
     visibility_config {
       cloudwatch_metrics_enabled = true
-      metric_name                = "${var.app}-rule-common-metric"
+      metric_name                = "${var.app}-${terraform.workspace}-rule-common-metric"
       sampled_requests_enabled   = true
     }
   }
@@ -35,7 +35,7 @@ resource "aws_wafv2_web_acl" "web_acl" {
 
   visibility_config {
     cloudwatch_metrics_enabled = true
-    metric_name                = "${var.app}-web-acl"
+    metric_name                = "${var.app}-${terraform.workspace}-web-acl"
     sampled_requests_enabled   = true
   }
 }

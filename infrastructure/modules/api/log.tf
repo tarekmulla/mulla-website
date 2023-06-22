@@ -23,7 +23,7 @@ resource "aws_api_gateway_account" "api_cloudwatch_role" {
 }
 
 resource "aws_iam_role" "cloudwatch" {
-  name = "${var.app}-api-cloudwatch-role"
+  name = "${var.app}-${terraform.workspace}-api-cloudwatch-role"
 
   assume_role_policy = <<EOF
 {
@@ -44,7 +44,7 @@ EOF
 
 # TODO: limit policy (resources)
 resource "aws_iam_role_policy" "cloudwatch" {
-  name = "${var.app}-cloudwatch-policy"
+  name = "${var.app}-${terraform.workspace}-cloudwatch-policy"
   role = aws_iam_role.cloudwatch.id
 
   policy = <<EOF
