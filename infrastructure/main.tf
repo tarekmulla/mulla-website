@@ -75,6 +75,7 @@ module "api" {
   source            = "./modules/api"
   app               = var.app
   api_domain        = "api.${var.domain}"
+  website_domain    = var.domain
   certificate_arn   = module.acm_certificate.arn
   bucket_name       = module.s3_bucket.id
   lambda_layer_arns = module.lambda_layers.layer_arns
