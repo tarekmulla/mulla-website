@@ -1,7 +1,7 @@
 locals {
-  s3_origin_id  = "S3WebappOrigin"
-  s3_images_origin_id  = "S3ImagesOrigin"
-  api_origin_id = "APIOrigin"
+  s3_origin_id        = "S3WebappOrigin"
+  s3_images_origin_id = "S3ImagesOrigin"
+  api_origin_id       = "APIOrigin"
 }
 
 resource "aws_cloudfront_origin_access_control" "default" {
