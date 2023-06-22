@@ -4,34 +4,35 @@ import Project from './Project';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styled from 'styled-components';
 
+let imagesUrl = "https://" + process.env.REACT_APP_DOMAIN + "/images/";
 let data = [
     {
-      img : "https://mulla.au/images/telstra.png",
+      img : imagesUrl + "telstra.png",
       disc : "Telstra Trade-in cloud backend, multi-accounts, multi-region cloud infrastructure backend.",
       link: "https://www.telstra.com.au/trade-in"
     },
     {
-      img : "https://mulla.au/images/ehealth.png",
+      img : imagesUrl + "ehealth.png",
       disc : "Helping the Cloud platform team at eHealth NSW with the Cloud Security Essential 8 (E8) compliance initiative.",
       link: "https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight"
     },
     {
-        img : "https://mulla.au/images/iress.png",
+        img : imagesUrl + "iress.png",
         disc: "Migrating, automating and supporting Content delivery applications in Iress",
         link: "https://www.iress.com/software/trading-and-market-data/market-data/"
     },
     {
-        img : "https://mulla.au/images/portfolio.png",
+        img : imagesUrl + "portfolio.png",
         disc: "Personal porfolio, serverless, hosted in AWS, fully automated and follows DevSecOps practices.",
         link: "https://github.com/tarekmulla/mulla-website"
     },
     {
-      img : "https://mulla.au/images/tbb.png",
+      img : imagesUrl + "tbb.png",
       disc : "Volunteered with Talent Beyond Boundaries to migrate their java app to AWS cloud using Terraform",
       link: "https://github.com/talentbeyondboundaries/tbbtalentv2"
     },
     {
-      img : "https://mulla.au/images/rmit.jpg",
+      img : imagesUrl + "rmit.jpg",
       disc : "Webapp to demonstrate the material of Course MATH2415 - Discrete Mathematics in RMIT Uni",
       link: "https://github.com/tarekmulla/discrete-math"
     }

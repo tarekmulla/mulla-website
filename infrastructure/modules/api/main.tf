@@ -1,6 +1,6 @@
 resource "aws_api_gateway_rest_api" "api" {
-  name        = var.app
-  description = "API for ${var.app}"
+  name        = "${var.app}-${terraform.workspace}"
+  description = "API for ${var.app} in ${terraform.workspace} environment"
   endpoint_configuration {
     types = ["REGIONAL"]
   }
@@ -21,5 +21,6 @@ module "contact" {
   api_exec_arn      = aws_api_gateway_rest_api.api.execution_arn
   bucket_name       = var.bucket_name
   lambda_layer_arns = var.lambda_layer_arns
+  website_domain    = var.website_domain
   tags              = var.tags
 }

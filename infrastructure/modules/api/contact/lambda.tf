@@ -21,7 +21,7 @@ module "contact_lambda" {
   source     = "terraform-aws-modules/lambda/aws"
   version    = "5.0.0"
 
-  function_name  = "${var.app}-contact"
+  function_name  = "${var.app}-${terraform.workspace}-contact"
   description    = "lambda function to send an email when receive contact message"
   handler        = "index.handler"
   runtime        = "nodejs16.x"
@@ -47,7 +47,8 @@ module "contact_lambda" {
   cloudwatch_logs_retention_in_days = 14
 
   environment_variables = {
-    APP = var.app
+    APP    = var.app
+    DOMAIN = var.website_domain
   }
 
   tags = var.tags

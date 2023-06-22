@@ -21,6 +21,7 @@ env:
   TERRAFORM_REGION: ${{ vars.REGION }}
   INFRA_PATH: './infrastructure'
   WEB_URL: ${{ vars.WEB_URL }}
+  DOMAIN: ${{ vars.DOMAIN }}
 
 jobs:
   terraform-plan:
@@ -75,14 +76,19 @@ jobs:
         run: |
           terraform validate -no-color
         working-directory: ${{ env.INFRA_PATH }}
+        env:
+          TF_VAR_domain: ${{ env.DOMAIN }}
 
       - name: Plan Terraform
         id: plan
         if: github.event_name == 'pull_request'
         run: |
+          terraform workspace new prod
           terraform plan -no-color -input=false
         continue-on-error: true
         working-directory: ${{ env.INFRA_PATH }}
+        env:
+          TF_VAR_domain: ${{ env.DOMAIN }}
 
       - name: Update Pull Request
         uses: actions/github-script@v6

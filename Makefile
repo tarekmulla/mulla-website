@@ -1,4 +1,9 @@
+install:
+	@cd webapp && \
+	npm install
 build:
-	@npm --prefix ./webapp run build
+	@cd webapp && \
+	npm run build
 run:
-	@npm --prefix ./webapp start
+	@cd webapp && \
+	npm start

@@ -36,7 +36,7 @@ module "lambda_layer" {
 
   create_layer = true
 
-  layer_name          = "${var.app}-${each.value["name"]}"
+  layer_name          = "${var.app}-${terraform.workspace}-${each.value["name"]}"
   description         = each.value["description"]
   compatible_runtimes = ["nodejs16.x"]
   create_package      = false

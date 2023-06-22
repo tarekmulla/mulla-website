@@ -6,6 +6,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { Slide } from "react-awesome-reveal";
 
 const ProfComponent = () => {
+  var profilePicUrl = "https://" + process.env.REACT_APP_DOMAIN + "/images/tarek-mulla.jpg";
   return (
     <Container id="home">
       <Slide direction="left">
@@ -49,7 +50,7 @@ const ProfComponent = () => {
       <Slide direction="right">
         <Profile>
           <img
-            src="https://mulla.au/images/tarek-mulla.jpg"
+            src={ profilePicUrl }
             alt="profile"
           />
         </Profile>

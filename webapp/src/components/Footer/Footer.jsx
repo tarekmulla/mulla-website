@@ -26,13 +26,14 @@ const Footer = () => {
     }
     data = data.substring(0, data.length - 1) + "}";
     try {
-      const response = fetch('https://mulla.au/api/contact', {
+      var contactURL = "https://" + process.env.REACT_APP_DOMAIN + "/api/contact";
+      const response = fetch(contactURL, {
         method: 'POST',
         body: data,
       });
-      console.log("Download complete", response);
+      console.log("Email sent successfully", response);
     } catch (error) {
-      console.error(`Download error: ${error.message}`);
+      console.error(`Failed sending an email: ${error.message}`);
     }
   };
   return (
