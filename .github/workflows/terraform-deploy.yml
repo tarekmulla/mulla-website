@@ -51,7 +51,7 @@ jobs:
 
       - name: Generate env variable
         run: |
-          ${{ secrets.DOTENV_FILE }} > .env
+          echo "${{ secrets.DOTENV_FILE }}" > .env
           cat .env
         working-directory: ${{ env.WEBAPP_PATH }}
 
