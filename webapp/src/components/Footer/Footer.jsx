@@ -17,6 +17,24 @@ const Footer = () => {
       behavior: "smooth",
     });
   };
+  const handleSubmit = (event) => {
+    const formData = new FormData(event.currentTarget);
+    event.preventDefault();
+    let data = "{"
+    for (let [key, value] of formData.entries()) {
+      data += `"${key}":"${value}",`
+    }
+    data = data.substring(0, data.length - 1) + "}";
+    try {
+      const response = fetch('https://mulla.au/api/contact', {
+        method: 'POST',
+        body: data,
+      });
+      console.log("Download complete", response);
+    } catch (error) {
+      console.error(`Download error: ${error.message}`);
+    }
+  };
   return (
     <Container id="footer">
       <Profile>
@@ -89,26 +107,26 @@ const Footer = () => {
       </Profile>
       <Form>
         <Slide direction="right">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="name">
               <span>
                 <CgProfile />
               </span>
-              <input type="text" placeholder="Fullname..." />
+              <input type="text" name="name" placeholder="Fullname..." />
             </div>
             <div className="email">
               <span>
                 <MdAlternateEmail />
               </span>
-              <input type="email" placeholder="Email..." />
+              <input type="email" name="email" placeholder="Email..." />
             </div>
             <div className="message">
               <span className="messageIcon">
                 <FiMail />
               </span>
-              <textarea cols="30" rows="10" placeholder="Message..."></textarea>
+              <textarea cols="30" rows="10" name="message" placeholder="Message..."></textarea>
             </div>
-            <button>Submit</button>
+            <button type="submit">Submit</button>
           </form>
         </Slide>
       </Form>

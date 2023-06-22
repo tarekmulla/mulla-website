@@ -4,7 +4,7 @@ const SES = new AWS.SES();
 const SENDER_EMAIL = "no-reply@mulla.au";
 const RECEIVER_EMAIL = "tarek@mulla.au";
 
-async function sendEmail(email, message) {
+async function sendEmail(email, message, name) {
   const params = {
     Destination: {
       ToAddresses: [RECEIVER_EMAIL],
@@ -12,7 +12,7 @@ async function sendEmail(email, message) {
     Message: {
       Body: {
         Html: {
-          Data: "A contact message received from " + email + ", Messsage is: " + message
+          Data: "A contact message received from " + name + ", email: " + email + ", the messsage is: " + message
         }
       },
       Subject: {
