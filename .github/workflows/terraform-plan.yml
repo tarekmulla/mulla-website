@@ -76,6 +76,8 @@ jobs:
         run: |
           terraform validate -no-color
         working-directory: ${{ env.INFRA_PATH }}
+        env:
+          TF_VAR_domain: ${{ env.DOMAIN }}
 
       - name: Plan Terraform
         id: plan
