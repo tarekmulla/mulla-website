@@ -83,7 +83,7 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: |
-          terraform workspace new prod
+          terraform workspace select prod
           terraform plan -no-color -input=false
         continue-on-error: true
         working-directory: ${{ env.INFRA_PATH }}

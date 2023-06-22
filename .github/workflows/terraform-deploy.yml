@@ -73,7 +73,7 @@ jobs:
 
       - name: Terraform Apply
         run: |
-          terraform workspace new prod
+          terraform workspace select prod
           terraform apply -auto-approve -input=false
         working-directory: ${{ env.INFRA_PATH }}
         env:
