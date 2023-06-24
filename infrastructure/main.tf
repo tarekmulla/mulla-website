@@ -4,7 +4,7 @@ provider "aws" {
 
 module "cloudfront_waf" {
   # Enable WAF for production only
-  count  = terraform.workspace == "prod" ? 0 : 1
+  count  = terraform.workspace == "prod" ? 1 : 0
   source = "./modules/waf"
   app    = var.app
   tags   = local.tags
