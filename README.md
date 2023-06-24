@@ -28,9 +28,11 @@ The web application can be accessed via the URL: [mulla.au](https://mulla.au/); 
 
 ## Deployment prerequisites ##
 
-Before you provision the infrastructure you will need to make sure the following requirements are satisfied:
+Before proceeding with infrastructure provisioning, ensure that the following requirements are met:
 
 1. Have an S3 bucket to store the infrastructure status
+2. Have a public route 53 domain
+3. Set the value of the `domain` variable in your Terraform configuration to match the domain created in Route 53.
 
 
 ## DevSecOps practices ##

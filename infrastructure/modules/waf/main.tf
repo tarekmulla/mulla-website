@@ -1,7 +1,7 @@
 resource "aws_wafv2_web_acl" "web_acl" {
   name        = "${var.app}-${terraform.workspace}-acl"
   description = "AWS Managed Rules for WAF"
-  scope       = var.cloudfront == true ? "CLOUDFRONT" : "REGIONAL"
+  scope       = "CLOUDFRONT"
 
   default_action {
     allow {}

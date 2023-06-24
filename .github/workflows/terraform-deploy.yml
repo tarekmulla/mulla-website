@@ -52,7 +52,6 @@ jobs:
       - name: Generate env variable
         run: |
           echo "${{ secrets.DOTENV_FILE }}" > .env
-          cat .env
         working-directory: ${{ env.WEBAPP_PATH }}
 
       - name: Install npm dependencies

@@ -13,11 +13,6 @@ variable "website_domain" {
   description = "The domain name for the website"
 }
 
-variable "api_domain" {
-  type        = string
-  description = "The domain name for the api"
-}
-
 variable "certificate_arn" {
   type        = string
   description = "The arn for the acm certificate for the app domain"
