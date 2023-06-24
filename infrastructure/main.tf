@@ -40,11 +40,15 @@ module "cdn" {
   domain              = var.domain
   acm_certificate_arn = module.acm_certificate.arn
   # WAF will be only available in production environment
-  waf_arn        = terraform.workspace == "prod" ? module.cloudfront_waf.arn : null
+  waf_arn        = terraform.workspace == "prod" ? module.cloudfront_waf[0].arn : null
   logging_bucket = module.s3_bucket.bucket_domain_name
   origin         = module.s3_bucket.bucket_regional_domain_name
   api_id         = module.api.endpoint
   tags           = local.tags
+
+  depends_on = [
+    module.cloudfront_waf
+  ]
 }
 
 module "website" {
