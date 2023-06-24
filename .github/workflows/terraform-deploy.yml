@@ -3,7 +3,8 @@ name: Terraform deployment
 on:
   push:
     branches: ['main']
-    paths: ['infrastructure/**']
+    paths: ['infrastructure/**',
+            '.github/workflows/**']
 
   workflow_dispatch: #this attribute will enable the manual run to the pipeline
 
@@ -11,7 +12,7 @@ on:
 permissions:
   contents: read
 
-# Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+# Use the Bash shell regardless the agent OS
 defaults:
   run:
     shell: bash
@@ -22,7 +23,6 @@ env:
   INFRA_PATH: './infrastructure'
   WEBAPP_PATH: './webapp'
   WEB_URL: ${{ vars.WEB_URL }}
-  DOMAIN: ${{ vars.DOMAIN }}
 
 jobs:
   terraform-deploy:
@@ -52,7 +52,6 @@ jobs:
       - name: Generate env variable
         run: |
           echo "${{ secrets.DOTENV_FILE }}" > .env
-          cat .env
         working-directory: ${{ env.WEBAPP_PATH }}
 
       - name: Install npm dependencies
@@ -63,8 +62,7 @@ jobs:
         run: npm run build
         working-directory: ${{ env.WEBAPP_PATH }}
 
-      # Install the latest version of Terraform CLI and configure the Terraform
-      # CLI configuration file with a Terraform Cloud user API token
+      # Install the latest version of Terraform CLI
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -82,4 +80,4 @@ jobs:
           terraform apply -auto-approve -input=false
         working-directory: ${{ env.INFRA_PATH }}
         env:
-          TF_VAR_domain: ${{ env.DOMAIN }}
+          TF_VAR_domain: ${{ vars.DOMAIN }}

@@ -2,7 +2,8 @@ name: Terraform Plan
 
 on:
   pull_request:
-    paths: ['infrastructure/**']
+    paths: ['infrastructure/**',
+            '.github/workflows/**']
 
   workflow_dispatch: #this attribute will enable the manual run to the pipeline
 
@@ -11,7 +12,7 @@ permissions:
   contents: read
   pull-requests: write
 
-# Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+# Use the Bash shell regardless the agent OS
 defaults:
   run:
     shell: bash
@@ -20,8 +21,6 @@ env:
   TERRAFORM_VERSION: 1.5.0
   TERRAFORM_REGION: ${{ vars.REGION }}
   INFRA_PATH: './infrastructure'
-  WEB_URL: ${{ vars.WEB_URL }}
-  DOMAIN: ${{ vars.DOMAIN }}
 
 jobs:
   terraform-plan:
@@ -51,8 +50,7 @@ jobs:
       - name: build the react webapp
         run: npm --prefix ./webapp run build
 
-      # Install the latest version of Terraform CLI and configure the Terraform
-      # CLI configuration file with a Terraform Cloud user API token
+      # Install the latest version of Terraform CLI
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -77,22 +75,20 @@ jobs:
           terraform validate -no-color
         working-directory: ${{ env.INFRA_PATH }}
         env:
-          TF_VAR_domain: ${{ env.DOMAIN }}
+          TF_VAR_domain: ${{ vars.DOMAIN }}
 
       - name: Plan Terraform
         id: plan
-        if: github.event_name == 'pull_request'
         run: |
           terraform workspace select prod
           terraform plan -no-color -input=false
         continue-on-error: true
         working-directory: ${{ env.INFRA_PATH }}
         env:
-          TF_VAR_domain: ${{ env.DOMAIN }}
+          TF_VAR_domain: ${{ vars.DOMAIN }}
 
       - name: Update Pull Request
         uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:

@@ -2,21 +2,18 @@ provider "aws" {
   region = "us-east-1"
 }
 
-data "aws_route53_zone" "domain_zone" {
-  name = var.domain
-}
-
 module "cloudfront_waf" {
-  source     = "./modules/waf"
-  app        = var.app
-  cloudfront = true
-  tags       = local.tags
+  # Enable WAF for production only
+  count  = terraform.workspace == "prod" ? 1 : 0
+  source = "./modules/waf"
+  app    = var.app
+  tags   = local.tags
 }
 
 module "acm_certificate" {
   source      = "./modules/certificate"
   domain_name = var.domain
-  SAN_domains = ["api.${var.domain}", "*.${var.domain}"]
+  SAN_domains = ["*.${var.domain}"]
   zone_id     = data.aws_route53_zone.domain_zone.zone_id
   tags        = local.tags
 }
@@ -42,11 +39,16 @@ module "cdn" {
   region              = var.region
   domain              = var.domain
   acm_certificate_arn = module.acm_certificate.arn
-  waf_arn             = module.cloudfront_waf.arn
-  logging_bucket      = module.s3_bucket.bucket_domain_name
-  origin              = module.s3_bucket.bucket_regional_domain_name
-  api_id              = module.api.endpoint
-  tags                = local.tags
+  # WAF will be only available in production environment
+  waf_arn        = terraform.workspace == "prod" ? module.cloudfront_waf[0].arn : null
+  logging_bucket = module.s3_bucket.bucket_domain_name
+  origin         = module.s3_bucket.bucket_regional_domain_name
+  api_id         = module.api.endpoint
+  tags           = local.tags
+
+  depends_on = [
+    module.cloudfront_waf
+  ]
 }
 
 module "website" {
@@ -74,7 +76,6 @@ module "dns" {
 module "api" {
   source            = "./modules/api"
   app               = var.app
-  api_domain        = "api.${var.domain}"
   website_domain    = var.domain
   certificate_arn   = module.acm_certificate.arn
   bucket_name       = module.s3_bucket.id

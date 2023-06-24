@@ -7,9 +7,3 @@ variable "tags" {
   description = "AWS Tags to add to all resources created (where possible)"
   type        = map(string)
 }
-
-variable "cloudfront" {
-  description = "for cloudfront or not"
-  type        = bool
-  default     = false
-}
