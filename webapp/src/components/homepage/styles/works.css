@@ -46,3 +46,10 @@
   text-align: right;
   color: var(--tertiary-color);
 }
+
+@media (max-width: 600px) {
+  .works {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

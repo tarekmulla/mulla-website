@@ -1,7 +1,9 @@
 @import "../../data/styles.css";
 
 .homepage-container {
-  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
 }
 
 .homepage-first-area {
@@ -16,10 +18,6 @@
   align-items: flex-start;
 }
 
-.homepage-title {
-  width: 85% !important;
-}
-
 .homepage-subtitle {
   width: 85% !important;
 }
@@ -29,11 +27,6 @@
   align-items: center;
 }
 
-.homepage-image-container {
-  width: 370px;
-  height: 370px;
-}
-
 .homepage-image-wrapper {
   overflow: hidden;
   border-radius: 10%;
@@ -41,7 +34,7 @@
 }
 
 .homepage-image-wrapper img {
-  width: 100%;
+  width: 350px;
 }
 
 .homepage-after-title {
@@ -89,10 +82,13 @@
   }
 
   .homepage-image-container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-left: 10px;
     order: 1;
+  }
+  .homepage-image-wrapper img {
+    width: 100%;
   }
 
   .homepage-after-title {

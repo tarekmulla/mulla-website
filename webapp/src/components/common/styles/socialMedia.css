@@ -16,3 +16,9 @@
 .homepage-social-icon:hover {
   color: var(--tertiary-color);
 }
+
+@media (max-width: 600px) {
+  .homepage-socials {
+    padding-top: 20px;
+  }
+}
