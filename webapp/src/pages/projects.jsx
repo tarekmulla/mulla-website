@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
-//import AllProjects from "../components/projects/allProjects";
+import Allprojects from "../components/projects/allprojects";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
@@ -39,7 +39,7 @@ const Projects = () => {
             </div>
 
             <div className="projects-list">
-              
+              <Allprojects />
             </div>
           </div>
           <div className="page-footer">

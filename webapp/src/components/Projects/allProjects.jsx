@@ -4,9 +4,9 @@ import Project from "./project";
 
 import INFO from "../../data/user";
 
-import "./styles/allProjects.css";
+import "./styles/allprojects.css";
 
-const AllProjects = () => {
+const Allprojects = () => {
   return (
     <div>
       <div className="all-projects-container">
@@ -26,4 +26,4 @@ const AllProjects = () => {
   );
 };
 
-export default AllProjects;
+export default Allprojects;
