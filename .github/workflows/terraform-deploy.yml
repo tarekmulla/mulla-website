@@ -55,7 +55,7 @@ jobs:
         working-directory: ${{ env.WEBAPP_PATH }}
 
       - name: Install npm dependencies
-        run: npm install
+        run: npm ci
         working-directory: ${{ env.WEBAPP_PATH }}
 
       - name: build the react webapp
