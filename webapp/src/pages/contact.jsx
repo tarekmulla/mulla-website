@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
 import SocialMedia from "../components/common/socialMedia";
+import ContactForm from "../components/contact/contactForm";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
@@ -49,7 +50,7 @@ const Contact = () => {
             <SocialMedia />
           </div>
 
-
+          <ContactForm />
 
           <div className="page-footer">
             <Footer />

@@ -30,7 +30,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name = replace(var.api_id, "/^https?://([^/]*).*/", "$1")
     origin_id   = local.api_origin_id
-    origin_path = "/production"
+    origin_path = "/${terraform.workspace}"
 
     custom_origin_config {
       http_port              = 80

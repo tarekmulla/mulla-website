@@ -31,7 +31,7 @@
   color: var(--tertiary-color);
 }
 
-.email::before {
+.email-address::before {
   content: "";
   display: block;
   padding-top: 20px;
