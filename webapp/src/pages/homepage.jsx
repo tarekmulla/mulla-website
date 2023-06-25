@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
 import SocialMedia from "../components/common/socialMedia";
-import AllProjects from "../components/projects/allProjects";
+//import AllProjects from "../components/projects/allProjects";
 
 import INFO from "../data/user";
 import CONFIG from "../data/config";
@@ -59,7 +59,7 @@ const Homepage = () => {
               <div className="subtitle">
                 Recent projects I worked on
               </div>
-              <AllProjects />
+              
             </div>
             <div className="page-footer">
               <Footer />
