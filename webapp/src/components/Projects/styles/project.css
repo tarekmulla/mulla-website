@@ -1,0 +1,76 @@
+@import "../../../data/styles.css";
+
+.project {
+  mix-blend-mode: normal;
+  border-radius: 5px;
+  opacity: 0.9;
+  height: 98%;
+}
+
+.project a {
+  text-decoration: none;
+}
+
+.project:hover {
+  background: #fafafa;
+  border-color: #2055a09d;
+  border-width: 0.3px;
+  border-style: dashed;
+  opacity: 1;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.project:hover .project-link {
+  color: var(--link-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.project-container {
+  padding: 30px;
+}
+
+.project-logo {
+  width: 100%;
+}
+
+.project-logo img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.project-title {
+  font-family: var(--secondary-font);
+  color: var(--primary-color);
+  font-size: 16px;
+  padding-top: 10px;
+  margin-bottom: 1em;
+  font-weight: 700;
+}
+
+.project-description {
+  color: var(--secondary-color);
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+  font-size: 12px;
+  padding-top: 20px;
+}
+
+.project-link-icon {
+  padding-left: 5px;
+  font-size: 13px;
+}
+
+.project-link-text {
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .project {
+    height: 300px;
+  }
+}
