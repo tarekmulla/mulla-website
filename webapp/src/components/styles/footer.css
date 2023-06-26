@@ -9,7 +9,8 @@
 }
 
 .footer-links,
-.footer-credits {
+.footer-credits,
+.footer-social {
   flex-basis: 50%;
 }
 
@@ -45,7 +46,7 @@
   text-align: right;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .footer {
     flex-direction: column;
     height: 85px;

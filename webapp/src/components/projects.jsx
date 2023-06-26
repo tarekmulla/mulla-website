@@ -29,7 +29,7 @@ const Projects = () => {
         <NavBar active="projects" />
         <div className="content-wrapper">
           <div id="projects" className="projects-container">
-            <h2 className="title projects-title">
+            <h2 className="subtitle projects-title">
               Recent Projects
             </h2>
 

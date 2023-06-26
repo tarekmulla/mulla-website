@@ -30,16 +30,19 @@ const About = () => {
       <div className="page-content">
         <NavBar active="about" />
         <div className="content-wrapper">
-          <div id="about" className="about-container">
+          <div id="about" className="justify-content about-container">
             <div className="about-main">
               <div className="about-right-side">
-                <h2 className="title about-title">
+                <p className="main-text about-initial">
+                  Hello, I am
+                </p>
+                <h1 className="title about-title">
                   {INFO.about.title}
-                </h2>
+                </h1>
 
-                <div className="main-text about-subtitle">
+                <p className="main-text about-subtitle">
                   {INFO.about.description}
-                </div>
+                </p>
 
                 <div className="about-banner-container">
                   <div className="about-banner-wrapper">

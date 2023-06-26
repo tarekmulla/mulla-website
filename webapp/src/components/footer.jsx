@@ -21,7 +21,10 @@ const Footer = () => {
           </ul>
         </div>
 
-        <SocialIcons />
+        <div className="footer-social">
+          <SocialIcons />
+        </div>
+
 
         <div className="footer-credits">
           <div className="footer-credits-text">

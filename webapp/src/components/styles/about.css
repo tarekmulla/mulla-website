@@ -3,7 +3,7 @@
 .about-container {
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 .about-main {
@@ -22,12 +22,14 @@
   flex-basis: 33%;
 }
 
+.about-initial {
+  margin-bottom: -10px;
+}
+
 .about-title,
 .about-subtitle,
 .about-banner-wrapper {
   width: 80%;
-  text-align: justify;
-  text-justify: inter-word;
 }
 
 .about-image-wrapper {
@@ -61,8 +63,7 @@
 }
 
 .about-socials {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
 }
 
 @media (max-width: 800px) {
