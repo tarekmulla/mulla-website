@@ -43,7 +43,7 @@ const Contact = () => {
               <a href={`mailto:${INFO.main.email}`}>{INFO.main.email}</a>. I make it a priority to respond to all messages within 24 hours, although it may take a bit longer during busy times.
 
               <p>
-                Alternatively, you can use the contact form below to get in touch. Simply fill out the required fields and I'll get back to you as I can.
+                Alternatively, you can use the contact form below to get in touch. Simply fill out the fields then submit and I'll get back to you as I can.
               </p>
             </div>
           </div>

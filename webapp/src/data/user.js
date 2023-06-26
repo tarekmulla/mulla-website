@@ -16,7 +16,7 @@ const INFO = {
   about: {
     title: "Tarek Mulla",
     description:
-			"I am a professional platform engineer and cybersecurity enthusiast! I relocated to Australia four years ago and recently embarked on my university journey, doing master in cybersecurity. My passion lies in exploring topics related to the cloud, devops, and cybersecurity. I try to stay up to date with the latest industry trends and consistently enhances his skills through ongoing professional development and certifications. I hold the following certifications:",
+			"I am a professional platform engineer and cybersecurity enthusiast! I relocated to Australia four years ago and currently pursuing a master's degree in cybersecurity at university. My passion lies in exploring topics related to the cloud, devops, and cybersecurity. I try to stay up to date with the latest industry trends and consistently enhance my skills through ongoing professional development and certifications. Currently I hold the following certifications:",
   },
 
   projects: [

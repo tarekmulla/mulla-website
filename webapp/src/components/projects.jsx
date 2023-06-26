@@ -34,7 +34,7 @@ const Projects = () => {
             </h2>
 
             <div className="main-text projects-subtitle">
-              I have gained extensive experience in designing, developing, and automating large-scale projects using the latest tools and techniques. Below, you'll find a list of some recent projects I have worked o
+              I have gained extensive experience in designing, developing, and automating large-scale projects using the latest tools and techniques. Below, you'll find a list of some recent projects I have worked on:
             </div>
 
             <div className="projects-list">
