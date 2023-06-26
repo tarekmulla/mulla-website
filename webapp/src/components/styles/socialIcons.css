@@ -1,24 +1,24 @@
-@import "../../../data/styles.css";
+@import "../../data/styles.css";
 
-.homepage-socials {
+.common-socials {
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-.homepage-social-icon {
+.common-social-icon {
   padding-right: 20px;
   font-size: 25px;
   transition: color 0.2s ease-in-out;
   color: var(--secondary-color);
 }
 
-.homepage-social-icon:hover {
+.common-social-icon:hover {
   color: var(--tertiary-color);
 }
 
 @media (max-width: 600px) {
-  .homepage-socials {
+  .common-socials {
     padding-top: 20px;
   }
 }

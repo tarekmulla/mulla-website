@@ -13,16 +13,10 @@ const INFO = {
     linkedin: "https://linkedin.com/in/tarekmulla/"
   },
 
-  homepage: {
+  about: {
     title: "Hello, I am Tarek Mulla",
     description:
-      "I am a professional cloud engineer and cybersecurity enthusiast! I relocated to Australia four years ago and recently embarked on my university journey, doing master in cybersecurity. My passion lies in exploring topics related to the cloud and cybersecurity. If you share an interest in these subjects, I invite you to navigate the content available on my website.",
-  },
-
-  about: {
-    title: "Tarek Mulla",
-    description:
-			"Tarek is an experienced cloud engineer with over 9 years of cloud and software development experience. He specializes in DevOps, security best practices, and implementing cloud solutions. He is currently pursuing a Master's degree in Cybersecurity at RMIT University to enhance his knowledge and skills in the security field. Tarek is known for his ability to effectively collaborate with cross-functional teams and communicate complex technical concepts to both technical and non-technical stakeholders. He stays up to date with the latest industry trends and consistently enhances his skills through ongoing professional development and certifications. Tarek holds the following certifications:",
+			"I am a professional platform engineer and cybersecurity enthusiast! I relocated to Australia four years ago and recently embarked on my university journey, doing master in cybersecurity. My passion lies in exploring topics related to the cloud, devops, and cybersecurity. I try to stay up to date with the latest industry trends and consistently enhances his skills through ongoing professional development and certifications. I hold the following certifications:",
   },
 
   projects: [

@@ -1,0 +1,45 @@
+.contact-form {
+  padding: 0.8rem;
+}
+
+.contact-field {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-name ,
+.contact-email,
+.contact-message {
+  height: 30px;
+  width: 400px;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+.contact-message {
+  height: 100px;
+}
+
+
+.contact-icon {
+  padding-right: 10px;
+  margin-top: 7px;
+}
+
+.contact-submit {
+  width: 100px;
+  height: 1.8rem;
+  background-color: var(--tertiary-color);
+  color: white;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+@media (max-width: 800px) {
+  .contact-name ,
+  .contact-email,
+  .contact-message {
+    width: 85%;
+  }
+}

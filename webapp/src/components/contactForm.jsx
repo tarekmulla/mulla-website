@@ -4,7 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { FiMail } from "react-icons/fi";
 
 import "./styles/contactForm.css";
-import CONFIG from "../../data/config"
+import CONFIG from "../data/config"
 
 const ContactForm = () => {
   const handleSubmit = (event) => {
@@ -35,26 +35,30 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="name">
-        <span>
-          <CgProfile />
-        </span>
-        <input type="text" name="name" placeholder="Fullname..." />
+      <div className="contact-form">
+        <div className="contact-field">
+          <span className="contact-icon">
+            <CgProfile />
+          </span>
+          <input className="contact-name" type="text" name="name" placeholder="Fullname..." />
+        </div>
+        <div className="contact-field">
+          <span className="contact-icon">
+            <MdAlternateEmail />
+          </span>
+          <input className="contact-email" required type="email" name="email" placeholder="Email..." />
+        </div>
+        <div className="contact-field">
+          <span className="contact-icon">
+            <FiMail />
+          </span>
+          <textarea className="contact-message" required cols="30" rows="10" name="message" placeholder="Message..."></textarea>
+        </div>
+        <div className="contact-field">
+          <button className="contact-submit" type="submit">Submit</button>
+        </div>
       </div>
-      <div className="email">
-        <span>
-          <MdAlternateEmail />
-        </span>
-        <input required type="email" name="email" placeholder="Email..." />
-      </div>
-      <div className="message">
-        <span className="messageIcon">
-          <FiMail />
-        </span>
-        <textarea required cols="30" rows="10" name="message" placeholder="Message..."></textarea>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    </form >
   );
 };
 

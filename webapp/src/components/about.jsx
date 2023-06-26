@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
-import Socials from "../components/about/socials";
-import Works from "../components/homepage/works";
+import NavBar from "./navBar";
+import SocialMedia from "./socialMedia";
+import Works from "./works";
 
 import INFO from "../data/user";
 import CONFIG from "../data/config";
@@ -31,7 +30,7 @@ const About = () => {
       <div className="page-content">
         <NavBar active="about" />
         <div className="content-wrapper">
-          <div className="about-container">
+          <div id="about" className="about-container">
             <div className="about-main">
               <div className="about-right-side">
                 <h2 className="title about-title">
@@ -52,7 +51,7 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="homepage-works">
+                <div className="works">
                   <Works />
                 </div>
               </div>
@@ -62,7 +61,7 @@ const About = () => {
                 <div className="about-image-container">
                   <div className="about-image-wrapper">
                     <img
-                      src={CONFIG.IMAGES_URL + "tarek-mulla-inkpen.jpg"}
+                      src={CONFIG.IMAGES_URL + "tarek-mulla.jpg"}
                       alt="about"
                       className="about-image"
                     />
@@ -70,16 +69,10 @@ const About = () => {
                 </div>
 
                 <div className="about-socials">
-                  <Socials />
+                  <SocialMedia />
                 </div>
               </div>
             </div>
-            <div className="about-socials-mobile">
-              <Socials />
-            </div>
-          </div>
-          <div className="page-footer">
-            <Footer />
           </div>
         </div>
       </div>

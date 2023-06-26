@@ -2,7 +2,7 @@ import React from "react";
 
 import Project from "./project";
 
-import INFO from "../../data/user";
+import INFO from "../data/user";
 
 import "./styles/allprojects.css";
 

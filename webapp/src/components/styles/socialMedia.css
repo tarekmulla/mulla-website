@@ -1,26 +1,34 @@
-@import "../../../data/styles.css";
-.social,
-.email-wrapper {
+@import "../../data/styles.css";
+.socials{
   display: flex;
-  padding-bottom: 20px;
 }
 
-.social a,
-.email-wrapper a {
+.socials-column {
+  flex-basis: 50%;
+}
+
+.social {
+  display: flex;
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+.social a {
   text-decoration: none;
 }
 
 .social-icon {
-  font-size: 15px;
   color: var(--secondary-color);
+  display: flex;
+  width: 35px;
 }
 
 .social-text {
   color: var(--secondary-color);
-  padding-left: 30px;
-  margin-top: -20px;
+  margin-top: -2px;
   font-weight: 600;
   font-size: 14px;
+  display: flex;
 }
 
 .social-icon:hover {
@@ -37,8 +45,4 @@
   padding-top: 20px;
   border-top: 3px solid var(--tertiary-color);
   margin-top: 20px;
-}
-
-.email-wrapper {
-  padding-top: 20px;
 }

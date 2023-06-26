@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
-import Allprojects from "../components/projects/allprojects";
+import NavBar from "../components/navBar";
+import Allprojects from "../components/allprojects";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
@@ -29,7 +28,7 @@ const Projects = () => {
       <div className="page-content">
         <NavBar active="projects" />
         <div className="content-wrapper">
-          <div className="projects-container">
+          <div id="projects" className="projects-container">
             <h2 className="title projects-title">
               Recent Projects
             </h2>
@@ -41,9 +40,6 @@ const Projects = () => {
             <div className="projects-list">
               <Allprojects />
             </div>
-          </div>
-          <div className="page-footer">
-            <Footer />
           </div>
         </div>
       </div>

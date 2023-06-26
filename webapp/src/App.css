@@ -30,7 +30,6 @@
   bottom: 0;
   width: calc((100% - 1200px) / 2);
   background-color: #fafafa;
-  border: 1px solid #f4f4f5;
 }
 
 .page-content:before {
@@ -53,6 +52,7 @@
   font-family: var(--secondary-font);
   font-size: 35px;
   font-weight: 700;
+  padding-top: 40px;
 }
 
 .subtitle {
@@ -62,11 +62,10 @@
 }
 
 .main-text {
-  padding-top: 10px;
+  padding-top: 5px;
   color: var(--secondary-color);
   font-size: 16px;
   line-height: 28px;
-  margin-top: 25px;
 }
 
 .page-footer {

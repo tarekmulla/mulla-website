@@ -1,18 +1,22 @@
 import React from "react";
-import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
-
-import Card from "../common/card";
+import { FaBriefcase } from "react-icons/fa";
 
 import "./styles/works.css";
 
 const Works = () => {
   return (
     <div className="works">
-      <Card
-        icon={faBriefcase}
-        title="Work"
-        body={
-          <div className="works-body">
+      <div className="card">
+      <div className="card-container">
+        <div className="card-header">
+          <div className="card-icon">
+            <FaBriefcase />
+          </div>
+          <div className="card-title">Work Experience</div>
+        </div>
+        <div className="card-body">
+            <div className="card-text">
+            <div className="works-body">
             <div className="work">
               <img
                 src="https://cevo.com.au/wp-content/uploads/2021/09/icon.png"
@@ -51,9 +55,12 @@ const Works = () => {
               <div className="work-duration">2019 - 2022</div>
             </div>
           </div>
-        }
-      />
-    </div>
+
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
   );
 };
 

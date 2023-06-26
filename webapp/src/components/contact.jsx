@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
-import SocialMedia from "../components/common/socialMedia";
-import ContactForm from "../components/contact/contactForm";
+import NavBar from "../components/navBar";
+import Footer from "../components/footer";
+
+import ContactForm from "../components/contactForm";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
@@ -31,7 +31,7 @@ const Contact = () => {
         <NavBar active="contact" />
         <div className="content-wrapper">
 
-          <div className="contact-container">
+          <div id="contact" className="contact-container">
             <h2 className="title contact-title">
               Let's Get in Touch
             </h2>
@@ -44,10 +44,8 @@ const Contact = () => {
 
               <p>
                 Alternatively, you can use the contact form below to get in touch. Simply fill out the required fields and I'll get back to you as I can.
-                If you prefer connecting through social media, you can find me on the following social media:
               </p>
             </div>
-            <SocialMedia />
           </div>
 
           <ContactForm />
