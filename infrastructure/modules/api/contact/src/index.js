@@ -1,4 +1,4 @@
-const { apiResponse } = require('/opt/nodejs/utility');
+const { apiResponse, jsonEscape } = require('/opt/nodejs/utility');
 const { sendEmail } = require('./sendEmail');
 
 module.exports.handler = async (event) => {
@@ -8,10 +8,12 @@ module.exports.handler = async (event) => {
   let name;
   try {
     if (event.body !== null && event.body !== undefined) {
-      let body = JSON.parse(event.body);
+      bodyContent = jsonEscape(event.body);
+      let body = JSON.parse(bodyContent);
       console.info(body);
-      if (body.email && body.message) {
+      if (body.name)
         name = body.name;
+      if (body.email && body.message) {
         email = body.email;
         message = body.message;
       }

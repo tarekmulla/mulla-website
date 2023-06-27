@@ -17,7 +17,23 @@ function apiResponse(res) {
   };
 }
 
+function jsonEscape(str)  {
+  // Preserve newlines, etc. - use valid JSON
+  newStr = str.replace(/\\n/g, "\\n")
+    .replace(/\\'/g, "\\'")
+    .replace(/\\"/g, '\\"')
+    .replace(/\\&/g, "\\&")
+    .replace(/\\r/g, "\\r")
+    .replace(/\\t/g, "\\t")
+    .replace(/\\b/g, "\\b")
+    .replace(/\\f/g, "\\f");
+  // Remove non-printable and other non-valid JSON characters
+  newStr = newStr.replace(/[\u0000-\u0019]+/g, "");
+  return newStr;
+}
+
 
 module.exports = {
   apiResponse,
+  jsonEscape
 };
