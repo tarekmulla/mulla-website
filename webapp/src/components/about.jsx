@@ -4,6 +4,9 @@ import { Helmet } from "react-helmet";
 import NavBar from "./navBar";
 import SocialMedia from "./socialMedia";
 import Works from "./works";
+import Education from "./education";
+import Skills from "./skills";
+import Certificates from "./certificates";
 
 import INFO from "../data/user";
 import CONFIG from "../data/config";
@@ -44,19 +47,9 @@ const About = () => {
                   {INFO.about.description}
                 </p>
 
-                <div className="about-banner-container">
-                  <div className="about-banner-wrapper">
-                    <img
-                      src={CONFIG.IMAGES_URL + "banner.png"}
-                      alt="banner-certificate"
-                      className="about-image"
-                    />
-                  </div>
-                </div>
+                <Works />
 
-                <div className="works">
-                  <Works />
-                </div>
+                <Education />
               </div>
 
 
@@ -74,8 +67,23 @@ const About = () => {
                 <div className="about-socials">
                   <SocialMedia />
                 </div>
+
+                <div className="about-skills desktop-tag">
+                  <Skills />
+                </div>
+
+                <div className="about-certificates desktop-tag">
+                  <Certificates />
+                </div>
               </div>
             </div>
+          </div>
+          <div className="about-skills mobile-tag">
+              <Skills />
+          </div>
+
+          <div className="about-certificates mobile-tag">
+            <Certificates />
           </div>
         </div>
       </div>

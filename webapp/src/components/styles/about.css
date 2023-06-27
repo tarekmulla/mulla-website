@@ -27,8 +27,7 @@
 }
 
 .about-title,
-.about-subtitle,
-.about-banner-wrapper {
+.about-subtitle {
   width: 80%;
 }
 
@@ -49,21 +48,12 @@
   box-shadow: 0px 0px 5px var(--tertiary-color);
 }
 
-.about-banner-wrapper {
-  padding-top: 4%;
-  padding-bottom: 4%;
-  display: flex;
-  justify-content: center;
-}
-
-.about-banner-wrapper img {
-  overflow: hidden;
-  width: 80%;
-  display: block;
-}
-
 .about-socials {
   padding-top: 10px;
+}
+
+.mobile-tag {
+  display: none;
 }
 
 @media (max-width: 800px) {
@@ -91,12 +81,15 @@
   }
 
   .about-title,
-  .about-subtitle,
-  .about-banner-wrapper {
+  .about-subtitle {
     width: 100%;
   }
 
-  .about-banner-wrapper img {
-    width: 100%;
+  .mobile-tag {
+    display:flex;
+  }
+
+  .desktop-tag {
+    display: none;
   }
 }
