@@ -31,7 +31,7 @@ const Contact = () => {
         <NavBar active="contact" />
         <div className="content-wrapper">
 
-          <div id="contact" className="justify-content contact-container">
+          <div id="contact" className="contact-container">
             <h2 className="subtitle contact-title">
               Let's Get in Touch
             </h2>

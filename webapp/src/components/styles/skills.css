@@ -2,7 +2,7 @@
   padding-top: 20px;
 }
 
-.skills {
+.skills-list {
   display: flex;
   list-style: none;
   align-items: left;
@@ -25,4 +25,15 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
+  cursor:pointer;
+}
+
+.about-banner-container {
+  width: 100%;
+}
+
+.about-image {
+  overflow: hidden;
+  width: 100%;
+  display: block;
 }

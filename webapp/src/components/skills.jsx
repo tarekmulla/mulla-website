@@ -2,25 +2,35 @@ import React from "react";
 
 import "./styles/skills.css";
 
-const Skills = () => {
-  return (
-    <div className="skills-container">
-      <div className="main-text">My top skills:</div>
-      <ul className="skills">
-        <li className="skill-tag">Cloud</li>
-        <li className="skill-tag">Cybersecurity</li>
-        <li className="skill-tag">DevOps</li>
-        <li className="skill-tag">Programming</li>
-        <li className="skill-tag">IaC</li>
-        <li className="skill-tag">CI\CD</li>
-        <li className="skill-tag">Agile</li>
-        <li className="skill-tag">Database</li>
-        <li className="skill-tag">AWS</li>
-        <li className="skill-tag">Azure</li>
-        <li className="skill-tag">Mentoring</li>
-        <li className="skill-tag">Communication</li>
-      </ul>
+import CONFIG from "../data/config";
 
+const Skills = () => {
+  const skillsTag = ["Cloud", "Cybersecurity", "DevOps", "Programming", "IaC", "CI\CD",
+  "Agile", "Database", "Database", "AWS", "Azure", "Mentoring", "Communication"];
+
+  return (
+    <div className="skills-container" >
+      <div className="skills">
+        <p>My top skills:</p>
+        <ul className="skills-list">
+          {skillsTag.map((item) => (
+            <li className="skill-tag">{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="about-banner-container">
+        <p>Currently I hold the below certifications, you can check the full list of badges in&nbsp;
+          <a href="https://www.credly.com/users/tarek-mulla/badges">Credly</a>
+        .</p>
+        <a href="https://www.credly.com/users/tarek-mulla/badges">
+          <img
+            src={CONFIG.IMAGES_URL + "banner.png"}
+            alt="banner-certificate"
+            className="about-image"
+          />
+        </a>
+      </div>
     </div>
   );
 };
