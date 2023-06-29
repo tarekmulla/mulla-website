@@ -24,7 +24,7 @@ const INFO = {
       title: "Telstra Trade-in app",
       description:
         "Telstra Trade-in cloud backend, multi-accounts, multi-region cloud infrastructure backend.",
-      logo: CONFIG.IMAGES_URL + "telstra.png",
+      logo: CONFIG.IMAGES_URL + "telstra.webp",
       linkText: "View Project",
       link: "https://www.telstra.com.au/trade-in",
     },
@@ -33,7 +33,7 @@ const INFO = {
       title: "eHealth Platform",
       description:
         "Helping the Cloud platform team at eHealth NSW with the Cloud Security Essential 8 (E8) compliance initiative.",
-      logo: CONFIG.IMAGES_URL + "ehealth.png",
+      logo: CONFIG.IMAGES_URL + "ehealth.webp",
       linkText: "View Project",
       link: "https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight",
     },
@@ -42,7 +42,7 @@ const INFO = {
       title: "Iress Content Delivery",
       description:
         "Migrating, automating and supporting Content delivery applications in Iress.",
-      logo: CONFIG.IMAGES_URL + "iress.png",
+      logo: CONFIG.IMAGES_URL + "iress.webp",
       linkText: "View Project",
       link: "https://www.iress.com/software/trading-and-market-data/market-data/",
     },
@@ -51,7 +51,7 @@ const INFO = {
       title: "Professional Portfolio",
       description:
         "Personal porfolio, serverless, hosted in AWS, fully automated and follows DevSecOps practices.",
-      logo: CONFIG.IMAGES_URL + "portfolio.png",
+      logo: CONFIG.IMAGES_URL + "portfolio.webp",
       linkText: "View Project",
       link: "https://github.com/tarekmulla/mulla-website",
     },
@@ -60,7 +60,7 @@ const INFO = {
       title: "Uni Webapp",
       description:
         "Webapp to demonstrate the material of Course MATH2415 - Discrete Mathematics in RMIT Uni.",
-      logo: CONFIG.IMAGES_URL + "rmit.jpg",
+      logo: CONFIG.IMAGES_URL + "rmit.webp",
       linkText: "View Project",
       link: "https://github.com/tarekmulla/discrete-math",
     },
@@ -69,7 +69,7 @@ const INFO = {
       title: "Talent Beyond Boundaries",
       description:
         "Volunteered with Talent Beyond Boundaries to migrate their java app to AWS cloud using Terraform.",
-      logo: CONFIG.IMAGES_URL + "tbb.png",
+      logo: CONFIG.IMAGES_URL + "tbb.webp",
       linkText: "View Project",
       link: "https://github.com/talentbeyondboundaries/tbbtalentv2",
     },
