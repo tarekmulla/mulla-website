@@ -25,7 +25,7 @@ const Skills = () => {
         .</p>
         <a href="https://www.credly.com/users/tarek-mulla/badges">
           <img
-            src={CONFIG.IMAGES_URL + "banner.png"}
+            src={CONFIG.IMAGES_URL + "banner.webp"}
             alt="banner-certificate"
             className="about-image"
           />
