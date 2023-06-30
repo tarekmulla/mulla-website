@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
 
 import NavBar from "./navBar";
 import SocialMedia from "./socialMedia";
@@ -8,7 +7,7 @@ import Skills from "./skills";
 
 import INFO from "../data/user";
 import CONFIG from "../data/config";
-import SEO from "../data/seo";
+
 
 import { FaUniversity, FaSuitcase } from "react-icons/fa";
 
@@ -21,18 +20,7 @@ const About = () => {
 
   return (
     <React.Fragment>
-      <Helmet>
-        <title>{`About | ${INFO.main.title}`}</title>
-        <meta name="description" content={SEO.description} />
-        <meta
-          name="keywords"
-          content={SEO.keywords.join(", ")}
-        />
-      </Helmet>
-
-      <div className="page-content">
-        <NavBar active="about" />
-        <div className="content-wrapper">
+      <div className="about-content">
           <div id="about" className="about-container">
             <div className="about-main">
               <div className="about-right-side">
@@ -93,7 +81,6 @@ const About = () => {
           <div className="about-skills mobile-tag">
               <Skills />
           </div>
-        </div>
       </div>
     </React.Fragment>
   );

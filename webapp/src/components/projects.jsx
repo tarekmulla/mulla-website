@@ -1,44 +1,36 @@
-import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
-
+import React from "react";
 import NavBar from "../components/navBar";
-import Allprojects from "../components/allprojects";
-
+import Project from "../components/project";
 import INFO from "../data/user";
-import SEO from "../data/seo";
 
 import "./styles/projects.css";
 
 const Projects = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <React.Fragment>
-      <Helmet>
-        <title>{`Projects | ${INFO.main.title}`}</title>
-        <meta name="description" content={SEO.description} />
-        <meta
-          name="keywords"
-          content={SEO.keywords.join(", ")}
-        />
-      </Helmet>
+      <div className="projects-content">
+        <div id="projects" className="projects-container">
+          <h2 className="subtitle projects-title">
+            Recent Projects
+          </h2>
 
-      <div className="page-content">
-        <NavBar active="projects" />
-        <div className="content-wrapper">
-          <div id="projects" className="projects-container">
-            <h2 className="subtitle projects-title">
-              Recent Projects
-            </h2>
+          <div className="main-text projects-subtitle">
+            I have gained extensive experience in designing, developing, and automating large-scale projects using the latest tools and techniques. Below, you'll find a list of some recent projects I have worked on:
+          </div>
 
-            <div className="main-text projects-subtitle">
-              I have gained extensive experience in designing, developing, and automating large-scale projects using the latest tools and techniques. Below, you'll find a list of some recent projects I have worked on:
-            </div>
-
-            <div className="projects-list">
-              <Allprojects />
+          <div className="projects-list">
+            <div className="all-projects-container">
+              {INFO.projects.map((project, index) => (
+                <div className="all-projects-project" key={index}>
+                  <Project
+                    logo={project.logo}
+                    title={project.title}
+                    description={project.description}
+                    linkText={project.linkText}
+                    link={project.link}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

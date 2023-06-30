@@ -1,36 +1,15 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
-
 import NavBar from "../components/navBar";
 import Footer from "../components/footer";
-
 import ContactForm from "../components/contactForm";
-
 import INFO from "../data/user";
-import SEO from "../data/seo";
 
 import "./styles/contact.css";
 
 const Contact = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <React.Fragment>
-      <Helmet>
-        <title>{`Contact | ${INFO.main.title}`}</title>
-        <meta name="description" content={SEO.description} />
-        <meta
-          name="keywords"
-          content={SEO.keywords.join(", ")}
-        />
-      </Helmet>
-
-      <div className="page-content">
-        <NavBar active="contact" />
-        <div className="content-wrapper">
-
+      <div className="contact-content">
           <div id="contact" className="contact-container">
             <h2 className="subtitle contact-title">
               Let's Get in Touch
@@ -50,10 +29,6 @@ const Contact = () => {
 
           <ContactForm />
 
-          <div className="page-footer">
-            <Footer />
-          </div>
-        </div>
       </div>
     </React.Fragment>
   );
