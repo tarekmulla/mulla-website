@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import NavBar from "./navBar";
 import SocialMedia from "./socialMedia";
 import Card from "./card";
 import Skills from "./skills";
@@ -14,10 +13,6 @@ import { FaUniversity, FaSuitcase } from "react-icons/fa";
 import "./styles/about.css";
 
 const About = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <React.Fragment>
       <div className="about-content">

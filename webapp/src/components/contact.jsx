@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import NavBar from "../components/navBar";
-import Footer from "../components/footer";
+import React from "react";
 import ContactForm from "../components/contactForm";
 import INFO from "../data/user";
 
