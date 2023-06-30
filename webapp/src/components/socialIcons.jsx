@@ -6,7 +6,6 @@ import {
   FaEnvelope
 } from "react-icons/fa";
 
-import "./styles/navBar.css";
 import INFO from "../data/user";
 
 import "./styles/socialIcons.css";

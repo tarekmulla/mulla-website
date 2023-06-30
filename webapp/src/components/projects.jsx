@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../components/navBar";
 import Project from "../components/project";
 import INFO from "../data/user";
 
