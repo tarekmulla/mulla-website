@@ -6,7 +6,7 @@ import CONFIG from "../data/config";
 
 const Skills = () => {
   const skillsTag = ["Cloud", "Cybersecurity", "DevOps", "Programming", "IaC", "CI/CD",
-  "Agile", "Database", "Database", "AWS", "Azure", "Mentoring", "Communication"];
+  "Agile", "Database", "Serverless", "AWS", "Azure", "Mentoring", "Communication"];
 
   return (
     <div className="skills-container" >
@@ -14,7 +14,7 @@ const Skills = () => {
         <p>My top skills:</p>
         <ul className="skills-list">
           {skillsTag.map((item) => (
-            <li className="skill-tag">{item}</li>
+            <li key={ item } className="skill-tag">{item}</li>
           ))}
         </ul>
       </div>

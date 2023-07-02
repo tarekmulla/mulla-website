@@ -22,7 +22,7 @@ const Card = (props) => {
 
           <div className="card-body">
             {items_list.map((item) => (
-              <div className="card-item">
+              <div key={ item.title } className="card-item">
 
                 <div className="card-item-image">
                   <img

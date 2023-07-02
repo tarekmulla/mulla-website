@@ -15,12 +15,12 @@
   width: 400px;
   border-radius: 5px;
   border-width: 1px;
+  font-family: var(--primary-font);
 }
 
 .contact-message {
   height: 100px;
 }
-
 
 .contact-icon {
   padding-right: 10px;
@@ -34,6 +34,10 @@
   color: white;
   border-radius: 5px;
   border-width: 1px;
+}
+
+.contact-submit:disabled {
+  opacity: 50%;
 }
 
 @media (max-width: 800px) {

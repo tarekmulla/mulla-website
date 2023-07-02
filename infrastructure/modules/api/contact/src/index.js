@@ -8,7 +8,7 @@ module.exports.handler = async (event) => {
   let name;
   try {
     if (event.body !== null && event.body !== undefined) {
-      bodyContent = jsonEscape(event.body);
+      let bodyContent = jsonEscape(event.body);
       let body = JSON.parse(bodyContent);
       console.info(body);
       if (body.name)
