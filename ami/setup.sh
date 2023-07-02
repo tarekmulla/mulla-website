@@ -7,8 +7,8 @@ sudo dnf install -y httpd wget
 echo "-------------- Installing PHP --------------"
 sudo dnf install -y php-fpm php-mysqli php-json php php-devel
 
-echo "-------------- Installing mysql --------------"
-sudo dnf install -y mysql-community-server
+echo "-------------- Installing mariadb --------------"
+sudo dnf install -y mariadb105-server
 
 echo "-------------- Start the apache server --------------"
 sudo systemctl start httpd

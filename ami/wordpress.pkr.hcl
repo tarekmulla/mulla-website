@@ -65,7 +65,7 @@ build {
     ]
   }
   provisioner "shell" {
-    inline = ["echo `this provisoner runs at last`"]
+    inline = ["echo this provisoner runs at last"]
   }
 
 }
