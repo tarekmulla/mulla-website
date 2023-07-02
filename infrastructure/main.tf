@@ -86,3 +86,9 @@ module "api" {
     module.acm_certificate
   ]
 }
+
+module "network" {
+  source            = "./modules/network"
+  app               = var.app
+  tags              = local.tags
+}
