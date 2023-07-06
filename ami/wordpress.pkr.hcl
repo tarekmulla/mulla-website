@@ -52,16 +52,26 @@ build {
   ]
   provisioner "file" {
     source      = "./setup.sh"
-    destination = "/home/ec2-user/setup.sh"
+    destination = "~/setup.sh"
+  }
+    provisioner "file" {
+    source      = "./wordpress.sh"
+    destination = "~/wordpress.sh"
   }
 
   provisioner "shell" {
     inline = [
-      "cd /home/ec2-user",
+      "cd ~",
+
       "sudo chmod +x ./setup.sh",
       "echo Running setup",
       "sudo ./setup.sh",
       "sudo rm ./setup.sh",
+
+      "sudo chmod +x ./wordpress.sh",
+      "echo Running wordpress",
+      "./wordpress.sh",
+      "sudo rm ./wordpress.sh",
     ]
   }
   provisioner "shell" {
