@@ -23,7 +23,7 @@ The following architecture shows all the components in the cloud infrastructure:
 
 The web application is built using [React library](https://react.dev/), and is hosted in S3 bucket in AWS.
 
-The web application can be accessed via the URL: [mulla.au](https://mulla.au/); The application interacts with the backend by sending requests to the API gateway [api.mulla.au](api.mulla.au).
+The web application can be accessed via the URL: [https://mulla.au](https://mulla.au/); The application interacts with the backend by sending requests to the API gateway [api.mulla.au](api.mulla.au).
 
 
 ## Deployment prerequisites ##
