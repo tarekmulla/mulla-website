@@ -15,7 +15,7 @@ The infrastructure part responsible for provisioning the cloud resources in AWS,
 The following architecture shows all the components in the cloud infrastructure:
 
 <p align="center">
-  <img src="/docs/images/architecture.svg" alt="design" width="800"/>
+  <img src="/docs/images/architecture.webp" alt="design" width="100%"/>
 </p>
 
 
