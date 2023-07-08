@@ -12,3 +12,18 @@ variable "bucket_name" {
   type        = string
   description = "The S3 bucket name"
 }
+
+variable "api_exec_arn" {
+  type        = string
+  description = "The arn for API execution"
+}
+
+variable "api_role_arn" {
+  type        = string
+  description = "The arn for API role"
+}
+
+variable "api_id" {
+  type        = string
+  description = "The API Id"
+}

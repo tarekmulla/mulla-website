@@ -12,6 +12,16 @@ resource "aws_api_gateway_resource" "contact" {
   path_part   = "contact"
 }
 
+module "api_authorizer" {
+  source       = "./authorizer"
+  app          = var.app
+  bucket_name  = var.bucket_name
+  api_id       = aws_api_gateway_rest_api.api.id
+  api_exec_arn = aws_api_gateway_rest_api.api.execution_arn
+  api_role_arn = aws_iam_role.api_role.arn
+  tags         = var.tags
+}
+
 # Each method has a separate module block
 module "contact" {
   source            = "./contact"
@@ -22,6 +32,6 @@ module "contact" {
   bucket_name       = var.bucket_name
   lambda_layer_arns = var.lambda_layer_arns
   website_domain    = var.website_domain
-  authorizer_id     = aws_api_gateway_authorizer.lambda_authorizer.id
+  authorizer_id     = module.api_authorizer.id
   tags              = var.tags
 }
