@@ -22,6 +22,10 @@ const ContactForm = () => {
       await fetch(CONFIG.CONTACT_URL, {
         method: 'POST',
         body: bodyData,
+        headers: {
+          'Content-Type': 'text/plain',
+          'x-api-key': CONFIG.TOKEN,
+        },
       }).then((response) => {
         if (response.status === 200) {
           responseMsg = "Message sent successfully.";

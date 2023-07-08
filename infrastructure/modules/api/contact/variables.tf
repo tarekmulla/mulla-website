@@ -38,3 +38,8 @@ variable "website_domain" {
   type        = string
   description = "The domain name for the website"
 }
+
+variable "authorizer_id" {
+  type        = string
+  description = "The authorizer ID"
+}

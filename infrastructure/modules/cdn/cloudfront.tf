@@ -90,7 +90,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     target_origin_id = local.api_origin_id
     compress         = false
 
-    origin_request_policy_id = "acba4595-bd28-49b8-b9fe-13317c0390fa"
+    origin_request_policy_id = aws_cloudfront_origin_request_policy.api_origin_request_policy.id
     cache_policy_id          = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
 
     viewer_protocol_policy = "redirect-to-https"
@@ -125,4 +125,21 @@ resource "aws_cloudfront_function" "remove_path" {
   comment = "cloudfront function to remove path from url (e.g. 'api/')"
   publish = true
   code    = file("${path.module}/remove_path.js")
+}
+
+resource "aws_cloudfront_origin_request_policy" "api_origin_request_policy" {
+  name    = "${var.app}-${terraform.workspace}-origin-policy"
+  comment = "Allowed custom headers in the api request"
+  cookies_config {
+    cookie_behavior = "none"
+  }
+  headers_config {
+    header_behavior = "whitelist"
+    headers {
+      items = ["x-api-key", "user-agent"]
+    }
+  }
+  query_strings_config {
+    query_string_behavior = "all"
+  }
 }
