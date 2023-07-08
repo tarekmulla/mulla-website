@@ -23,3 +23,9 @@ variable "domain" {
   type        = string
   description = "The application domain"
 }
+
+variable "alert_emails" {
+  type        = list(string)
+  description = "The email addresses list"
+  default     = ["alert@example.com"]
+}

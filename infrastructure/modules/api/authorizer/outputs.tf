@@ -4,6 +4,11 @@ output "id" {
 }
 
 output "lambda_authorizer_arn" {
-  description = "The lambda authorizer function arn"
+  description = "The lambda function arn"
   value       = module.authorizer_lambda.lambda_function_arn
+}
+
+output "lambda_name" {
+  description = "The lambda function name"
+  value       = module.authorizer_lambda.lambda_function_name
 }

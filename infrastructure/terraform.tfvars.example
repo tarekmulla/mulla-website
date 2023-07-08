@@ -1,3 +1,4 @@
 app = "mulla-website"
 domain = "mulla.au"
+alert_emails = ["alert@mulla.au"]
 tags = {}
