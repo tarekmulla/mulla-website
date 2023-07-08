@@ -2,6 +2,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
+module "sns" {
+  source       = "./modules/sns"
+  app          = var.app
+  alert_emails = var.alert_emails
+  tags         = local.tags
+}
+
 module "cloudfront_waf" {
   # Enable WAF for production only
   count  = terraform.workspace == "prod" ? 1 : 0
@@ -85,4 +92,24 @@ module "api" {
   depends_on = [
     module.acm_certificate
   ]
+}
+
+module "alarms" {
+  source              = "./modules/cloudwatch/alarms"
+  app                 = var.app
+  email_sns_topic_arn = terraform.workspace == "prod" ? module.sns.email_sns_topic_arn : ""
+  tags                = local.tags
+}
+
+module "dashboard" {
+  source                 = "./modules/cloudwatch/dashboard"
+  app                    = var.app
+  api_name               = module.api.name
+  bucket_name            = module.s3_bucket.id
+  cloudfront_dist_id     = module.cdn.cloudfront_dist_id
+  waf_name               = terraform.workspace == "prod" ? module.cloudfront_waf[0].name : "${var.app}-prod-acl"
+  lambda_contact_name    = module.api.lambda_contact_name
+  lambda_authorizer_name = module.api.lambda_authorizer_name
+  certificate_arn        = module.acm_certificate.arn
+  tags                   = local.tags
 }
