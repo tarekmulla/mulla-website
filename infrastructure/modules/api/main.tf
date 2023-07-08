@@ -22,5 +22,6 @@ module "contact" {
   bucket_name       = var.bucket_name
   lambda_layer_arns = var.lambda_layer_arns
   website_domain    = var.website_domain
+  authorizer_id     = aws_api_gateway_authorizer.lambda_authorizer.id
   tags              = var.tags
 }

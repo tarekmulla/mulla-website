@@ -33,3 +33,8 @@ variable "lambda_layer_arns" {
   type        = list(string)
   description = "The Invoke ARNs of the Lambda layers"
 }
+
+variable "api_authorizer_arn" {
+  type        = string
+  description = "The Invoke ARN of the Lambda authorizer function"
+}

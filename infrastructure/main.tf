@@ -73,14 +73,22 @@ module "dns" {
   tags                      = local.tags
 }
 
+module "api_authorizer" {
+  source      = "./modules/auth"
+  app         = var.app
+  bucket_name = module.s3_bucket.id
+  tags        = local.tags
+}
+
 module "api" {
-  source            = "./modules/api"
-  app               = var.app
-  website_domain    = var.domain
-  certificate_arn   = module.acm_certificate.arn
-  bucket_name       = module.s3_bucket.id
-  lambda_layer_arns = module.lambda_layers.layer_arns
-  tags              = local.tags
+  source             = "./modules/api"
+  app                = var.app
+  website_domain     = var.domain
+  certificate_arn    = module.acm_certificate.arn
+  bucket_name        = module.s3_bucket.id
+  lambda_layer_arns  = module.lambda_layers.layer_arns
+  api_authorizer_arn = module.api_authorizer
+  tags               = local.tags
 
   depends_on = [
     module.acm_certificate
