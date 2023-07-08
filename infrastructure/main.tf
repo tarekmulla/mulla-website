@@ -97,7 +97,7 @@ module "api" {
 module "alarms" {
   source              = "./modules/cloudwatch/alarms"
   app                 = var.app
-  email_sns_topic_arn = module.sns.email_sns_topic_arn
+  email_sns_topic_arn = terraform.workspace == "prod" ? module.sns.email_sns_topic_arn : ""
   tags                = local.tags
 }
 

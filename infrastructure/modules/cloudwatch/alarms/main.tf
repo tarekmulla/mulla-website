@@ -9,9 +9,10 @@ module "all_lambdas_errors_alarm" {
   period              = 120
   unit                = "Count"
 
-  namespace   = "AWS/Lambda"
-  metric_name = "Errors"
-  statistic   = "Sum"
+  namespace          = "AWS/Lambda"
+  metric_name        = "Errors"
+  statistic          = "Sum"
+  treat_missing_data = "notBreaching"
 
   alarm_actions = [var.email_sns_topic_arn]
 }
