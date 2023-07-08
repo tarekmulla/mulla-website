@@ -1,5 +1,8 @@
 const { getAuthToken } = require('./getAuthToken');
 
+/** Generate policy that allows the request and let the request proceed to the backing resource
+ *
+ */
 function generatePolicy(principalId, effect, resource) {
   const authResponse = {};
 
@@ -19,11 +22,12 @@ function generatePolicy(principalId, effect, resource) {
 }
 
 module.exports.handler = async (event) => {
+  // extract the token from the request
   const token = event.authorizationToken;
-
-
+  // get the stored token from SSM parameter store
   const appAuthToken = await getAuthToken(`/${process.env.APP}/${process.env.ENV}/api_auth_token`);
 
+  // generate policy that allows the request if the token is correct
   if (token === appAuthToken) {
     return generatePolicy('user', 'Allow', event.methodArn);
   }
