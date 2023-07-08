@@ -4,7 +4,7 @@ resource "random_password" "api_auth_token" {
 }
 
 resource "aws_ssm_parameter" "api_auth_token_ssm" {
-  name  = "${var.app}/${terraform.workspace}/api_auth_token"
+  name  = "/${var.app}/${terraform.workspace}/api_auth_token"
   type  = "SecureString"
   value = random_password.api_auth_token.result
 }

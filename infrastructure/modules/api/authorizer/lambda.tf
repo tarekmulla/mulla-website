@@ -37,7 +37,7 @@ module "authorizer_lambda" {
     ses = {
       effect    = "Allow",
       actions   = ["ssm:GetParameter"],
-      resources = ["${var.app}/${terraform.workspace}/*"]
+      resources = ["*"]
     }
   }
 

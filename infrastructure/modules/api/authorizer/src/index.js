@@ -22,7 +22,7 @@ module.exports.handler = async (event) => {
   const token = event.authorizationToken;
 
 
-  const appAuthToken = await getAuthToken(`${process.env.APP}/${process.env.ENV}/api_auth_token`);
+  const appAuthToken = await getAuthToken(`/${process.env.APP}/${process.env.ENV}/api_auth_token`);
 
   if (token === appAuthToken) {
     return generatePolicy('user', 'Allow', event.methodArn);

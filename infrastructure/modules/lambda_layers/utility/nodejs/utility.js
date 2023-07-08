@@ -3,7 +3,8 @@
 function generateHeaders() {
   const headers = {
     'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json'
+    'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+    'Content-Type': 'application/json',
   };
   return headers;
 }
