@@ -1,4 +1,4 @@
-app = "mulla-website"
-domain = "mulla.au"
-alert_emails = ["alert@mulla.au"]
+app = "my-website"
+domain = "example.com"
+alert_emails = ["alert@example.com"]
 tags = {}
