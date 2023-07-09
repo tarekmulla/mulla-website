@@ -10,8 +10,6 @@ module "sns" {
 }
 
 module "cloudfront_waf" {
-  # Enable WAF for production only
-  count  = terraform.workspace == "prod" ? 1 : 0
   source = "./modules/waf"
   app    = var.app
   tags   = local.tags
@@ -46,12 +44,11 @@ module "cdn" {
   region              = var.region
   domain              = var.domain
   acm_certificate_arn = module.acm_certificate.arn
-  # WAF will be only available in production environment
-  waf_arn        = terraform.workspace == "prod" ? module.cloudfront_waf[0].arn : null
-  logging_bucket = module.s3_bucket.bucket_domain_name
-  origin         = module.s3_bucket.bucket_regional_domain_name
-  api_id         = module.api.endpoint
-  tags           = local.tags
+  waf_arn             = module.cloudfront_waf.arn
+  logging_bucket      = module.s3_bucket.bucket_domain_name
+  origin              = module.s3_bucket.bucket_regional_domain_name
+  api_id              = module.api.endpoint
+  tags                = local.tags
 
   depends_on = [
     module.cloudfront_waf
@@ -107,7 +104,7 @@ module "dashboard" {
   api_name               = module.api.name
   bucket_name            = module.s3_bucket.id
   cloudfront_dist_id     = module.cdn.cloudfront_dist_id
-  waf_name               = terraform.workspace == "prod" ? module.cloudfront_waf[0].name : "${var.app}-prod-acl"
+  waf_name               = module.cloudfront_waf.name
   lambda_contact_name    = module.api.lambda_contact_name
   lambda_authorizer_name = module.api.lambda_authorizer_name
   certificate_arn        = module.acm_certificate.arn

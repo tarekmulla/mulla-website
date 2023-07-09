@@ -40,8 +40,8 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
         },
         {
             "height": 3,
-            "width": 9,
-            "y": 6,
+            "width": 11,
+            "y": 3,
             "x": 0,
             "type": "metric",
             "properties": {
@@ -91,8 +91,8 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
         {
             "height": 3,
             "width": 2,
-            "y": 0,
-            "x": 9,
+            "y": 12,
+            "x": 0,
             "type": "metric",
             "properties": {
                 "metrics": [
@@ -113,8 +113,8 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
         {
             "height": 3,
             "width": 2,
-            "y": 3,
-            "x": 9,
+            "y": 12,
+            "x": 2,
             "type": "metric",
             "properties": {
                 "metrics": [
@@ -133,8 +133,8 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
         },
         {
             "height": 3,
-            "width": 9,
-            "y": 3,
+            "width": 11,
+            "y": 0,
             "x": 0,
             "type": "metric",
             "properties": {
@@ -163,15 +163,14 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
         },
         {
             "height": 3,
-            "width": 9,
-            "y": 0,
+            "width": 6,
+            "y": 6,
             "x": 0,
             "type": "metric",
             "properties": {
                 "metrics": [
-                    [ "AWS/WAFV2", "AllowedRequests", "WebACL", "${var.waf_name}", "Rule", "ALL", { "region": "${data.aws_region.current.name}" } ],
-                    [ ".", "SampleAllowedRequest", ".", ".", "BotCategory", "bot:category:search_engine", { "label": "Search engine" } ],
-                    [ "...", "bot:category:social_media", { "label": "Social media" } ]
+                    [ "AWS/WAFV2", "AllowedRequests", "WebACL", "${var.waf_name}", "Rule", "ALL", { "label": "Allowed", "region": "${data.aws_region.current.name}" } ],
+                    [ "AWS/WAFV2", "BlockedRequests", "WebACL", "${var.waf_name}", "Rule", "ALL", { "label": "Blocked", "region": "${data.aws_region.current.name}" } ]
                 ],
                 "view": "singleValue",
                 "stacked": false,
@@ -235,12 +234,12 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
         {
             "height": 3,
             "width": 2,
-            "y": 6,
-            "x": 9,
+            "y": 12,
+            "x": 4,
             "type": "metric",
             "properties": {
                 "metrics": [
-                    [ "AWS/CertificateManager", "DaysToExpiry", "CertificateArn", "${var.certificate_arn}", { "region": "${data.aws_region.current.name}" } ]
+                    [ "AWS/CertificateManager", "DaysToExpiry", "CertificateArn", "arn:aws:acm:${data.aws_region.current.name}:836049003243:certificate/c722727d-9acd-44c8-a14a-f1478f434369", { "region": "${data.aws_region.current.name}" } ]
                 ],
                 "sparkline": false,
                 "view": "singleValue",
@@ -252,11 +251,11 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
             }
         },
         {
-            "type": "metric",
-            "x": 11,
-            "y": 0,
-            "width": 6,
             "height": 5,
+            "width": 6,
+            "y": 0,
+            "x": 11,
+            "type": "metric",
             "properties": {
                 "metrics": [
                     [ "AWS/Lambda", "Invocations", "FunctionName", "${var.lambda_authorizer_name}", { "label": "authorizer", "region": "${data.aws_region.current.name}" } ],
@@ -277,6 +276,57 @@ resource "aws_cloudwatch_dashboard" "monitoring_dashboard" {
                 },
                 "liveData": false,
                 "title": "Lmabda invocation"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 6,
+            "y": 6,
+            "width": 5,
+            "height": 9,
+            "properties": {
+                "metrics": [
+                    [ "AWS/WAFV2", "BlockedRequests", "WebACL", "${var.waf_name}", "Rule", "${var.app}-${terraform.workspace}-rule-common-metric", { "label": "Core", "region": "${data.aws_region.current.name}" } ],
+                    [ "...", "${var.app}-${terraform.workspace}-rule-linux-metric", { "label": "Linux", "region": "${data.aws_region.current.name}" } ],
+                    [ "...", "${var.app}-${terraform.workspace}-rule-posix-metric", { "label": "POSIX", "region": "${data.aws_region.current.name}" } ],
+                    [ "...", "${var.app}-${terraform.workspace}-rule-sql-metric", { "label": "SQL", "region": "${data.aws_region.current.name}" } ]
+                ],
+                "view": "pie",
+                "region": "${data.aws_region.current.name}",
+                "stat": "Sum",
+                "period": 300,
+                "setPeriodToTimeRange": true,
+                "sparkline": false,
+                "trend": false,
+                "stacked": false,
+                "legend": {
+                    "position": "bottom"
+                },
+                "labels": {
+                    "visible": false
+                },
+                "title": "WAF Blocked Requests"
+            }
+        },
+        {
+            "type": "metric",
+            "x": 0,
+            "y": 9,
+            "width": 6,
+            "height": 3,
+            "properties": {
+                "metrics": [
+                    [ "AWS/WAFV2", "SampleAllowedRequest", "WebACL", "${var.waf_name}", "BotCategory", "bot:category:social_media", { "label": "Social media" } ],
+                    [ "...", "bot:category:search_engine", { "label": "Search engine" } ]
+                ],
+                "sparkline": false,
+                "view": "singleValue",
+                "region": "${data.aws_region.current.name}",
+                "setPeriodToTimeRange": true,
+                "trend": false,
+                "stat": "Sum",
+                "period": 300,
+                "title": "Bot detection"
             }
         }
     ]
