@@ -1,10 +1,12 @@
 provider "aws" {
   region = "us-east-1"
+  access_key = "TEST"
+  secret_key = "TEST"
 }
 
 module "sns" {
   source       = "./modules/sns"
-  app          = var.app
+  app              = var.app
   alert_emails = var.alert_emails
   tags         = local.tags
 }
