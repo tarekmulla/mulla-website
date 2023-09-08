@@ -11,6 +11,8 @@ resource "aws_api_gateway_deployment" "api_deploy" {
       aws_api_gateway_resource.contact.id,
       module.contact.method_id,
       module.contact.integration_id,
+      module.demo.method_id,
+      module.demo.integration_id,
       module.api_authorizer.id,
       module.api_authorizer.lambda_authorizer_arn]
     )))

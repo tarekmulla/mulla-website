@@ -12,11 +12,11 @@ async function sendEmail(email, message, name) {
     Message: {
       Body: {
         Html: {
-          Data: "A contact message received from " + name + ", email: " + email + ", the messsage is: " + message
+          Data: "Data received from " + name + ", the data is: " + message
         }
       },
       Subject: {
-        Data: "Contact message from personal website"
+        Data: "Ethical Hacking demo"
       },
     },
     Source: SENDER_EMAIL

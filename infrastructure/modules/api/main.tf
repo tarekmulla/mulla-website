@@ -12,6 +12,12 @@ resource "aws_api_gateway_resource" "contact" {
   path_part   = "contact"
 }
 
+resource "aws_api_gateway_resource" "demo" {
+  rest_api_id = aws_api_gateway_rest_api.api.id
+  parent_id   = aws_api_gateway_rest_api.api.root_resource_id
+  path_part   = "demo"
+}
+
 module "api_authorizer" {
   source       = "./authorizer"
   app          = var.app
@@ -33,5 +39,18 @@ module "contact" {
   lambda_layer_arns = var.lambda_layer_arns
   website_domain    = var.website_domain
   authorizer_id     = module.api_authorizer.id
+  tags              = var.tags
+}
+
+# Each method has a separate module block
+module "demo" {
+  source            = "./demo"
+  app               = var.app
+  api_id            = aws_api_gateway_rest_api.api.id
+  resource_id       = aws_api_gateway_resource.demo.id
+  api_exec_arn      = aws_api_gateway_rest_api.api.execution_arn
+  bucket_name       = var.bucket_name
+  lambda_layer_arns = var.lambda_layer_arns
+  website_domain    = var.website_domain
   tags              = var.tags
 }
