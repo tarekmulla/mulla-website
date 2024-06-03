@@ -48,8 +48,8 @@ const About = () => {
                   title="Education"
                   icon={ <FaUniversity />}
                   items_list={[
-                  {image: "rmit-logo.webp", link:"https://www.rmit.edu.au/", title:"RMIT", subtitle:"Master in Cybersecurity", duration:"2023 - Present"},
-                  {image: "rmit-online-logo.webp", link:"https://online.rmit.edu.au/", title:"RMIT Online", subtitle:"Project management for professional Course", duration:"2022"},
+                  {image: "deakin-logo.webp", link:"https://www.deakin.edu.au/", title:"Deakin", subtitle:"Master of Business Analytics (AI specialization)", duration:"2024 - Present"},
+                  {image: "rmit-logo.webp", link: "https://www.rmit.edu.au/", title: "RMIT", subtitle: "Master in Cybersecurity", duration: "2023 - 2024" },
                   {image: "tishreen-university-logo.webp", link:"https://tishreen.edu.sy/", title:"Tishreen University", subtitle:"Bachelor's Degree, Computers & Automation Engineering", duration:"2009 - 2014"}
                 ]} />
               </div>
