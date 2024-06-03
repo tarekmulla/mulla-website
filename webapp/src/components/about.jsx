@@ -27,7 +27,11 @@ const About = () => {
                 </h1>
 
                 <p className="main-text about-subtitle">
-                  {INFO.about.description}
+                {INFO.about.description1}
+                <br/>
+                {INFO.about.description2}
+                <br/>
+                {INFO.about.description3}
                 </p>
 
                 <Card
