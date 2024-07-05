@@ -18,7 +18,7 @@ const INFO = {
     description1:
       `Tarek is an experienced platform and cybersecurity engineer skilled in DevSecOps, Cloud solutions, and Security best practices. His career has spanned various industries, including finance, telecommunications, and government sectors, where he has played a crucial role in migrating systems to the cloud, implementing robust security controls, and ensuring compliance with security standards.`,
     description2:
-      `Tarek holds a Master's degree in Cybersecurity from RMIT University and is currently pursuing a Master of Business Analytics with a specialization in Artificial Intelligence at Deakin University.`,
+      `Tarek holds a Master's degree in Cybersecurity from RMIT University and is currently pursuing a Master of Computer Science with a specialization in Artificial Intelligence at University of Melbourne.`,
     description3:
       `In addition to his academic qualifications, Tarek has earned several prestigious certifications, including AWS Solutions Architect Professional, AWS Security Specialty, Kubernetes Security Specialist, and Project Management Professional (PMP).`
   },
