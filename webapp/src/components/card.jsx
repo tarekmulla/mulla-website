@@ -33,12 +33,10 @@ const Card = (props) => {
 
                 <div className="card-item-description">
                   <div className="card-item-title">
-                    <a href={item.link} target="_blank" rel="noreferrer">
                     {item.title}
-                    </a>
                   </div>
                   <div className="card-item-subtitle">
-                    {item.subtitle}
+                  <a href={item.link} target="_blank" rel="noreferrer">{item.subtitle}</a>
                   </div>
                 </div>
 
