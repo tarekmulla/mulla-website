@@ -30,13 +30,11 @@ format:
 
 .PHONY: plan
 plan:
-	@export AWS_DEFAULT_PROFILE="mulla" && \
-	cd infrastructure && terraform plan
+	@cd infrastructure && terraform plan
 
 .PHONY: deploy
 deploy:
-	@export AWS_DEFAULT_PROFILE="mulla" && \
-	cd infrastructure && \
+	@cd infrastructure && \
 	terraform init && \
 	terraform apply --auto-approve
 
