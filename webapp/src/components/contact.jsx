@@ -14,8 +14,6 @@ const Contact = () => {
             </h2>
 
             <div className="main-text contact-subtitle">
-              <p>
-                Thank you for your interest in getting in touch with me.</p>
                 If you have any specific questions or comments, please don't hesitate to email me directly at my email address&nbsp;
               <a href={`mailto:${INFO.main.email}`}>{INFO.main.email}</a>. I make it a priority to respond to all messages within 24 hours, although it may take a bit longer during busy times.
 

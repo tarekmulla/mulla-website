@@ -14,7 +14,7 @@ const Projects = () => {
           </h2>
 
           <div className="main-text projects-subtitle">
-            I have gained extensive experience in designing, developing, and automating large-scale projects using the latest tools and techniques. Below, you'll find a list of some recent projects I have worked on:
+            I have led and delivered numerous cloud solutions, successfully executing secure cloud migrations, implementing strategic security frameworks, and ensuring compliance with critical industry standards. Below are several recent projects I've contributed to:
           </div>
 
           <div className="projects-list">
@@ -25,7 +25,6 @@ const Projects = () => {
                     logo={project.logo}
                     title={project.title}
                     description={project.description}
-                    linkText={project.linkText}
                     link={project.link}
                   />
                 </div>

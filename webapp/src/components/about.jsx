@@ -38,7 +38,7 @@ const About = () => {
                   title="Work Experience"
                   icon={ <FaSuitcase />}
                   items_list={[
-                  {image: "cevo-logo.webp", link:"https://Cevo.com.au", title:"Cevo", subtitle:"Cloud/DevSecOps consultant", duration:"2023 - Present"},
+                  {image: "cevo-logo.webp", link:"https://Cevo.com.au", title:"Cevo", subtitle:"Cloud/DevSecOps consultant", duration:"2023 - 2025"},
                   {image: "ciandt-logo.webp", link:"https://ciandt.com", title:"CI&T", subtitle:"Lead Cloud Engineer", duration:"2022 - 2023"},
                   {image: "iress-logo.webp", link:"https://iress.com", title:"Iress", subtitle:"Engineer", duration:"2019 - 2022"},
                   {image: "compuleader-logo.webp", link:"https://compu-leader.com", title:"Compu-leader", subtitle:"Software Engineer", duration:"2015 - 2018"}

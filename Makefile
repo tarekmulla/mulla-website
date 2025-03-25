@@ -37,6 +37,7 @@ plan:
 deploy:
 	@export AWS_DEFAULT_PROFILE="mulla" && \
 	cd infrastructure && \
+	terraform init && \
 	terraform apply --auto-approve
 
 .PHONY: destroy
