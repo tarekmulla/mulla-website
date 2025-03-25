@@ -28,7 +28,7 @@ const Footer = () => {
 
           <div className="footer-credits">
             <div className="footer-credits-text">
-              © 2024 <a href="https://mulla.au">mulla.au</a> All Rights
+              © 2025 <a href="https://mulla.au">mulla.au</a> All Rights
               Reserved.
             </div>
           </div>
