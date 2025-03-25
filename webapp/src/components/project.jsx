@@ -1,5 +1,4 @@
 import React from "react";
-import { FaLink } from "react-icons/fa";
 
 import "./styles/project.css";
 
