@@ -16,18 +16,25 @@ const INFO = {
   about: {
     title: "Tarek Mulla",
     description1:
-      `Experienced Platform and Cybersecurity leader specializing in DevSecOps, cloud solutions, and cybersecurity governance.`,
+      `Cybersecurity and Cloud Expert with deep experience designing and securing cloud architectures. Successfully led cloud development and migration projects, ensuring compliance with Australian and international security standards.`,
     description2:
-      `Proven ability to lead cloud solutions development across finance, telecommunications, and government sectors, successfully delivering secure cloud migrations, implementing strategic security frameworks, and ensuring compliance with industry-critical standards.`,
+      `Focused on embedding security throughout the development lifecycle and aligning security strategy with business objectives. Strong track record in risk analysis, stakeholder engagement, and communicating security priorities to executive leadership.`,
     description3:
-      `Adept at fostering collaborative environments, enhancing team performance, and regularly contributing insights as a speaker at the Australian Cyber Conference. Holds a Master's degree in Cybersecurity along with professional AWS certifications.`
+      `Regular speaker at the Australian Cyber Conference. Holds a Master’s degree in Cybersecurity, AWS Professional certifications, and is recognised as a Certified Professional (Cybersecurity) by the Australian Computer Society.`
   },
 
   projects: [
     {
+      title: "Security advising role",
+      description:
+        "Providing strategic security guidance aligned with VPDSS, ISM, PSPF, and ISO 27001/2 at the Department of Energy, Environment and Climate Action.",
+      logo: CONFIG.IMAGES_URL + "vic-deeca.webp",
+      link: "https://www.deeca.vic.gov.au/",
+    },
+    {
       title: "AMP - APRA CPS 234",
       description:
-        "Guided the achievement of APRA CPS 234 compliance, established AWS security baseline controls for 80%+ of AMP components, and managed Prisma Cloud integration with custom policy development.",
+        "Contributed to APRA CPS 234 compliance by implementing AWS security baseline controls, terraform core components library, and integrating Prisma Cloud with custom policies.",
       logo: CONFIG.IMAGES_URL + "cps-234.webp",
       link: "https://www.apra.gov.au/sites/default/files/cps_234_july_2019_for_public_release.pdf",
     },
