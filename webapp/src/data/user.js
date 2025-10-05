@@ -8,7 +8,7 @@ const INFO = {
   },
 
   socials: {
-    twitter: "https://twitter.com/tarek_mulla",
+    //twitter: "https://twitter.com/tarek_mulla",
     github: "https://github.com/tarekmulla",
     linkedin: "https://linkedin.com/in/tarekmulla/"
   },

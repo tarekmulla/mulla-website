@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  FaTwitter,
+  //FaTwitter,
   FaLinkedin,
   FaGithub,
   FaEnvelope
@@ -14,12 +14,12 @@ const SocialMedia = () => {
   return (
     <div className="socials">
       <div className="socials-column">
-        <div className="social">
+        {/*<div className="social">
           <FaTwitter className="social-icon"/>
           <a className="social-text" href={INFO.socials.twitter} target="_blank" rel="noreferrer">
             Twitter account
           </a>
-        </div>
+        </div>*/}
 
         <div className="social">
         <FaGithub className="social-icon"/>

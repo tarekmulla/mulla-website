@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  FaTwitter,
+  //FaTwitter,
   FaLinkedin,
   FaGithub,
   FaEnvelope
@@ -20,13 +20,13 @@ const SocialIcons = () => {
     >
     <FaLinkedin className="common-social-icon" />
     </a>
-    <a
+      {/*<a
       href={INFO.socials.twitter}
       target="_blank"
       rel="noreferrer"
       >
         <FaTwitter className="common-social-icon" />
-    </a>
+    </a>*/}
     <a
       href={INFO.socials.github}
       target="_blank"

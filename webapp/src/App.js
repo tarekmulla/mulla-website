@@ -1,6 +1,6 @@
 import NavBar from "./components/navBar";
 import About from "./components/about";
-import Projects from "./components/projects";
+//import Projects from "./components/projects";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
@@ -21,7 +21,7 @@ function App() {
         <NavBar />
 
         <About />
-        <Projects />
+        {/* <Projects /> IGNORE */}
         <Contact />
 
         <Footer />
