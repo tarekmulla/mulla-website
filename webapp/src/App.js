@@ -21,7 +21,7 @@ function App() {
         <NavBar />
 
         <About />
-        <Projects />
+        {/* <Projects /> IGNORE */}
         <Contact />
 
         <Footer />

@@ -37,8 +37,9 @@ const About = () => {
                 <Card
                   title="Work Experience"
                   icon={ <FaSuitcase />}
-                  items_list={[
-                  {image: "vic-gov-logo.webp", link:"https://www.deeca.vic.gov.au/", subtitle:"Department of Energy, Environment and Climate Action", title:"Senior Security Advisor", duration:"2025 - Current"},
+                items_list={[
+                  {image: "cisco-logo.webp", link:"https://www.cisco.com/", subtitle:"Cisco", title:"Team Lead", duration:"2025 - Current"},
+                  {image: "vic-gov-logo.webp", link:"https://www.deeca.vic.gov.au/", subtitle:"Department of Energy, Environment and Climate Action", title:"Senior Security Advisor", duration:"2025 - 2025"},
                   {image: "cevo-logo.webp", link:"https://Cevo.com.au", subtitle:"Cevo", title:"Senior Cloud & Cybersecurity Consultant", duration:"2023 - 2025"},
                   {image: "ciandt-logo.webp", link:"https://ciandt.com", subtitle:"CI&T", title:"Lead Cloud Engineer", duration:"2022 - 2023"},
                   {image: "iress-logo.webp", link:"https://iress.com", subtitle:"Iress", title:"Cloud Engineer", duration:"2019 - 2022"},

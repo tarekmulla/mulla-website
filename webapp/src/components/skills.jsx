@@ -5,8 +5,8 @@ import "./styles/skills.css";
 import CONFIG from "../data/config";
 
 const Skills = () => {
-  const skillsTag = ["Cloud", "Cybersecurity", "Leadership", "DevOps", "Consulting", "IaC", "DevOps",
-  "Mentoring", "PreSales", "AWS", "Azure", "Programming" ];
+  const skillsTag = ["Cloud", "Cybersecurity", "Leadership", "DevOps", "Consulting", "IaC", "Risk Analysis",
+  "AWS", "Azure", "Stakeholder Engagement", "Public Speaking" ];
 
   return (
     <div className="skills-container" >
