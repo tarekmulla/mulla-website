@@ -6,7 +6,7 @@ import CONFIG from "../data/config";
 
 const Skills = () => {
   const skillsTag = ["Cloud", "Cybersecurity", "Leadership", "DevOps", "Consulting", "IaC",
-  "AWS", "Azure", "Risk-Analysis", "Stakeholder-Engagement", "Public-Speaking" ];
+  "AWS", "Azure", "Risk", "Compliance" ];
 
   return (
     <div className="skills-container" >
