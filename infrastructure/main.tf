@@ -9,11 +9,11 @@ module "sns" {
   tags         = local.tags
 }
 
-module "cloudfront_waf" {
-  source = "./modules/waf"
-  app    = var.app
-  tags   = local.tags
-}
+# module "cloudfront_waf" {
+#   source = "./modules/waf"
+#   app    = var.app
+#   tags   = local.tags
+# }
 
 module "acm_certificate" {
   source      = "./modules/certificate"
@@ -44,15 +44,15 @@ module "cdn" {
   region              = var.region
   domain              = var.domain
   acm_certificate_arn = module.acm_certificate.arn
-  waf_arn             = module.cloudfront_waf.arn
+  waf_arn             = null # module.cloudfront_waf.arn
   logging_bucket      = module.s3_bucket.bucket_domain_name
   origin              = module.s3_bucket.bucket_regional_domain_name
   api_id              = module.api.endpoint
   tags                = local.tags
 
-  depends_on = [
-    module.cloudfront_waf
-  ]
+  # depends_on = [
+  #   module.cloudfront_waf
+  # ]
 }
 
 module "website" {
@@ -98,15 +98,15 @@ module "alarms" {
   tags                = local.tags
 }
 
-module "dashboard" {
-  source                 = "./modules/cloudwatch/dashboard"
-  app                    = var.app
-  api_name               = module.api.name
-  bucket_name            = module.s3_bucket.id
-  cloudfront_dist_id     = module.cdn.cloudfront_dist_id
-  waf_name               = module.cloudfront_waf.name
-  lambda_contact_name    = module.api.lambda_contact_name
-  lambda_authorizer_name = module.api.lambda_authorizer_name
-  certificate_arn        = module.acm_certificate.arn
-  tags                   = local.tags
-}
+# module "dashboard" {
+#   source                 = "./modules/cloudwatch/dashboard"
+#   app                    = var.app
+#   api_name               = module.api.name
+#   bucket_name            = module.s3_bucket.id
+#   cloudfront_dist_id     = module.cdn.cloudfront_dist_id
+#   waf_name               = module.cloudfront_waf.name
+#   lambda_contact_name    = module.api.lambda_contact_name
+#   lambda_authorizer_name = module.api.lambda_authorizer_name
+#   certificate_arn        = module.acm_certificate.arn
+#   tags                   = local.tags
+# }

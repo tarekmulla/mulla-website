@@ -16,11 +16,11 @@ const INFO = {
   about: {
     title: "Tarek Mulla",
     description1:
-      `Cybersecurity and Cloud Expert with deep experience designing and securing cloud architectures. Successfully led cloud development and migration projects, ensuring compliance with Australian and international security standards.`,
+      `Engineering Manager specialising in Security and Site Reliability Engineering with a strong background in cybersecurity and cloud architectures.`,
     description2:
-      `Focused on embedding security throughout the development lifecycle and aligning security strategy with business objectives. Strong track record in risk analysis, stakeholder engagement, and communicating security priorities to executive leadership.`,
+      `Experienced in leading cloud security initiatives, strengthening security practices, and building resilient, high-trust engineering teams. Passionate about embedding security into the development lifecycle and aligning technical strategy with business goals.`,
     description3:
-      `Regular speaker at the Australian Cyber Conference. Holds a Master’s degree in Cybersecurity, AWS Professional certifications, and is recognised as a Certified Professional (Cybersecurity) by the Australian Computer Society.`
+      `Holds a Master’s degree in Cybersecurity, AWS Professional certifications, and is recognised as a Certified Professional (Cybersecurity) by the Australian Computer Society. MBA Candidate at Melbourne Business School.`
   },
 
   projects: [

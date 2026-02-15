@@ -38,7 +38,7 @@ const About = () => {
                   title="Work Experience"
                   icon={ <FaSuitcase />}
                 items_list={[
-                  {image: "cisco-logo.webp", link:"https://www.cisco.com/", subtitle:"Cisco Systems - Duo Security", title:"Team Lead / APJC SRE Team", duration:"2025 - Current"},
+                  {image: "cisco-logo.webp", link:"https://www.cisco.com/", subtitle:"Cisco Systems - Duo Security", title:"Engineering Manager", duration:"2025 - Current"},
                   {image: "vic-gov-logo.webp", link:"https://www.deeca.vic.gov.au/", subtitle:"Department of Energy, Environment and Climate Action", title:"Senior Security Advisor", duration:"2025 - 2025"},
                   {image: "cevo-logo.webp", link:"https://Cevo.com.au", subtitle:"Cevo", title:"Senior Cloud & Cybersecurity Consultant", duration:"2023 - 2025"},
                   {image: "ciandt-logo.webp", link:"https://ciandt.com", subtitle:"CI&T", title:"Lead Cloud Engineer", duration:"2022 - 2023"},
@@ -49,8 +49,8 @@ const About = () => {
                 <Card
                   title="Education"
                   icon={ <FaUniversity />}
-                  items_list={[
-                  {image: "unimelb-logo.webp", link:"https://www.unimelb.edu.au/", subtitle:"University of Melbourne", title:"Master of Computer Science (AI specialization)", duration:"2024 - Present"},
+                items_list={[
+                  {image: "mbs-logo.webp", link:"https://online.mbs.edu/", subtitle:"Melbourne Business School", title:"Master of Business Administration", duration:"2024 - 2025"},
                   {image: "rmit-logo.webp", link: "https://www.rmit.edu.au/", subtitle: "RMIT", title: "Master of Cyber Security", duration: "2023 - 2024" },
                   {image: "tishreen-university-logo.webp", link:"https://tishreen.edu.sy/", subtitle:"Tishreen University", title:"Bachelor's Degree, Computers & Automation Engineering", duration:"2009 - 2014"}
                 ]} />
