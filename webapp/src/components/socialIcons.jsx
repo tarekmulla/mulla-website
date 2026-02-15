@@ -2,7 +2,7 @@ import React from "react";
 import {
   //FaTwitter,
   FaLinkedin,
-  FaGithub,
+  //FaGithub,
   FaEnvelope
 } from "react-icons/fa";
 
@@ -26,14 +26,14 @@ const SocialIcons = () => {
       rel="noreferrer"
       >
         <FaTwitter className="common-social-icon" />
-    </a>*/}
+    </a>
     <a
       href={INFO.socials.github}
       target="_blank"
       rel="noreferrer"
     >
       <FaGithub className="common-social-icon" />
-    </a>
+    </a>*/}
     <a
       href={`mailto:${INFO.main.email}`}
       target="_blank"
