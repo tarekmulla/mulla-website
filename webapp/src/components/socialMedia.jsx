@@ -13,13 +13,13 @@ import "./styles/socialMedia.css";
 const SocialMedia = () => {
   return (
     <div className="socials">
-      <div className="socials-column">
-        {/*<div className="social">
+      {/*<div className="socials-column">
+        <div className="social">
           <FaTwitter className="social-icon"/>
           <a className="social-text" href={INFO.socials.twitter} target="_blank" rel="noreferrer">
             Twitter account
           </a>
-        </div>*/}
+        </div>}
 
         <div className="social">
         <FaGithub className="social-icon"/>
@@ -27,7 +27,7 @@ const SocialMedia = () => {
           GitHub profile
           </a>
         </div>
-      </div>
+      </div>*/}
 
       <div className="socials-column">
         <div className="social">
